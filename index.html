@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ru" class="add-scroll">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Фридрих Фишер (бесплатная консультация)</title>
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style-f7a-arb.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="add-scroll">
+    <style>
+    
+    
+    
+    .container-1 {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .form-container {
+        padding: 15px;
+        flex: 50%;
+    }
+    
+    .form-container form {
+        background: #fff;
+        flex-direction: column;
+        padding: 0 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .form-container label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .red-border,
+    .red-border__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .red-border {
+        position: relative;
+        color: #fff;
+        width: 85px;
+        height: 85px;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 15px auto;
+    }
+    
+    .red-border__text {
+        position: relative;
+        width: 85px;
+        height: 85px;
+        background-color:red;
+        border-radius: 50%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    
+    .overlay-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+            padding: 20px 40px;
+        height: 100%;
+        text-align: center;
+    }
+    
+    .overlay-container {
+        background: #ff416c;
+        background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+        color: #fff;
+        width: 100%;
+        flex: 50%;
+    }
+    .form-container input {
+    font-size:20px;
+    font-weight: bold;
+        padding: 12px 15px;
+        margin: 15px 0;
+        width: 100%;
+        border-radius: 10px;
+        border-width: 3px;
+    border-color:#1A8BDC;
+    }
+    
+    .columns {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .text-span-6 {
+        font-size: 25px;
+    }
+    
+    .text-span-6 {
+        font-size: 20px;
+    }
+    
+    .text-span-7 {
+        font-size: 25px;
+    }
+    
+    .red {
+        text-decoration: line-through;
+        color: red;
+    }
+    
+    .green {
+        color: green;
+    }
+    
+    button {
+        border-radius: 20px;
+    border:none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px 50px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+    
+    
+    
+    @media screen and (max-width: 768px) {
+        .container-1 {
+            flex-direction: column;
+        }
+    
+        .columns {
+            flex-direction: column;
+        }
+    }</style>
+     <style>
+
+        .items-wrap {
+            background-color: red;
+        
+          position: relative;
+          display: flex;
+          overflow: hidden;
+          user-select: none;
+          gap: 20px;
+        }
+        .items-wrap:before,
+        .items-wrap:after {
+          content: "";
+          height: 100%;
+          top: 0;
+          width: 10%;
+          position: absolute;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .item{
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+        }
+        .items {
+          flex-shrink: 0;
+          display: flex;
+          gap: 20px;
+          counter-reset: item;
+          justify-content: space-around;
+          min-width: 100%;
+        }
+        
+        .marquee {
+          animation: scroll 20s linear infinite;
+        }
+        .items-wrap:hover .marquee {
+          animation-play-state: paused;
+        }
+        
+        @media screen and (max-width:769px) {
+            .container-1{max-width: 540px;}
+
+        }
+        @media screen and (max-width:600px) {
+            .container-1{max-width: 340px;}
+            
+        }
+        @media screen and (min-width:1000px) {
+            .container-1{max-width: 720px;}
+            
+        }
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(calc(-100% - 20px));
+          }
+        }
+        input{
+            border-style: solid;
+
+        }
+            </style>
+    <div class="body">
+        <div class="header-head">
+            <div class="top">
+                <div class="top-row">
+                    <img src="assets/img/facebook.svg" alt="" class="top-facebook">
+                    <input type="search" class="top-search" placeholder="Поиск">
+                    <img src="assets/img/top-icons.svg" alt="" class="top-icons">
+                    <img src="assets/img/top-settings.svg" alt="" class="top-settings">
+                </div>
+            </div>
+            <div class="header">
+                <div class="container">
+                    <div class="header__body">
+                        <div class="header__name">
+                            <div class="header__avatar">
+                                <img src="assets/img/header-ava-eac-arb.png" alt="">
+                            </div>
+                            <div class="header__desc">
+                                <p><span>Фридрих Фишер</span></p>
+                                <p>(бесплатная консультация)</p>
+                            </div>
+                        </div>
+                        <div class="header__connection">
+                            <img src="assets/img/connection.svg" alt="" class="hidden-xs">
+                            <img src="assets/img/phone.svg" alt="" class="hidden-lg">
+                            <img src="assets/img/video.svg" alt="" class="hidden-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+             
+                <div class="chat">
+                    <div class="chat__time">
+                        <p><span class="date"></span></p>
+                    </div>
+                    <div class="chat-content-list"> </div>
+
+                    <div id="form" class="iframe-form zakaz">
+                        <div id="order" class="boxit">
+
+                            <div class="frame-container">
+
+                                <div class="row-form">
+
+                                    <div class="cnn-promoblock-product-box">
+                                      
+                                        <div class="cnn-promoblock-product-box-inner">
+                                            <div class="cnn-promoblock-product-box-left">
+                                                <div class="cnn-promoblock-product-box-product-link w-inline-block">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="cnn-promoblock-product-box-right">
+                                               
+                                                <div class="form-container sign-up-container">
+                                                    <div class="container-1" style="display: block;border-style:solid;border-color: #1A8BDC;" id="container">
+                                                        <div class="wrap" style="height: 40px;">
+                                                            <div class="items-wrap">
+                                                              <div class="items marquee">
+                                                                <div class="item" data-dl-uid="214" >50%</div>
+                                                                <div class="item" data-dl-uid="215" >50%</div>
+                                                                <div class="item" data-dl-uid="216" >50%</div>
+                                                                <div class="item" data-dl-uid="217" >50%</div>
+                                                                <div class="item" data-dl-uid="218" >50%</div>
+                                                                <div class="item" data-dl-uid="219" >50%</div>
+                                                                <div class="item" data-dl-uid="220" >50%</div>
+                                                                <div class="item" data-dl-uid="221" >50%</div>
+                                                                <div class="item" data-dl-uid="222" >50%</div>
+                                                                <div class="item" data-dl-uid="223" >50%</div>
+                                                              </div>
+                                                              <div aria-hidden="true" class="items marquee">
+                                                                <div class="item" data-dl-uid="224" >50%</div>
+                                                                <div class="item" data-dl-uid="225" >50%</div>
+                                                                <div class="item" data-dl-uid="226" >50%</div>
+                                                                <div class="item" data-dl-uid="227" >50%</div>
+                                                                <div class="item" data-dl-uid="228" >50%</div>
+                                                                <div class="item" data-dl-uid="229" >50%</div>
+                                                                <div class="item" data-dl-uid="230" >50%</div>
+                                                                <div class="item" data-dl-uid="231" >50%</div>
+                                                                <div class="item" data-dl-uid="232" >50%</div>
+                                                                <div class="item" data-dl-uid="233" >50%</div>
+                                                                      </div>
+                                                            </div>
+                                                    
+                                                          </div>
+                                                       
+                                                         <div class="container-1">
+                                                        <div style="flex: 50%;">
+                                                            <!--F-9-->
+                                                            <div class="overlay">
+                                                                <div class="overlay-panel overlay-left">
+                                                                    <img style="width: auto;max-width:300px" src="./assets/img/product.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-container sign-up-container">
+                                                            <div class="columns _1234 w-row">
+                                                                <div class="w-col w-col-5">
+                                                                    <div class="text-block-5 _1234" data-dl-uid="234" >
+                                                                       <span class="text-span-6" data-dl-uid="235" ><strong class="bold-text-3 prc red" data-dl-uid="236" >
+                                                                                    298000 COP</strong></span><br data-dl-uid="237" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="w-col w-col-2">
+                                                                    <div class="red-border">
+                                                                        <div class="red-border__text text-black" data-dl-uid="238" >-50%</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="w-col w-col-5">
+                                                                    <div class="text-block-6_1" data-dl-uid="239" >
+                                                                       <span class="text-span-7" data-dl-uid="240" ><strong class="_1-2 prc green" data-dl-uid="241" >149000 COP</strong></span><br data-dl-uid="242" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                
+                                                            
+                                                            <form action="order.php" method="post" style="margin-top: 15px;">
+                                                                <div id="eee" style="float: right;display: none;">
+                                                                <div class="nam" style="position: absolute;margin-left: -140px;margin-top: -12px;"><p style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;"><b>Andrea Garcia.</b></p></div>
+                                                </div>  
+                                                                <div class="" style="display: flex;">
+                                                                <input type="text" onfocus="placen()" onfocusout="placen2()" id="name" name="name" placeholder="Su nombre" maxlength="100" required="">
+                                                            </div>
+                                                            <div id="eee2" style="float: right;display: none;">
+                                                                <div class="nam" style="position: absolute;margin-left: -185px;margin-top: -12px;"><p style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;"><b>+57XXXXXXXXX</b></p></div>
+                                                </div>  
+                                                                <div class="" style="display: flex;">
+                                                                <input type="tel" onfocus="placeh()" onfocusout="placeh2()" name="phone" placeholder="Tu número de teléfono" minlength="5" required="">
+                                                                </div>
+                                                                <button style="background-color: #1A8BDC;" data-dl-uid="243" >Encargar Prostavar</button>
+                                                
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- form -->
+                    </div>
+                    <div id="down-box"></div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-row">
+                <div class="footer-add">
+                    <img src="assets/img/footer-add.svg" alt="">
+                </div>
+                <div class="footer-input">
+                    <input type="text">
+                    <img src="assets/img/footer-input.svg" class="footer-image" alt="">
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.countdown.min-5f9-arb.js"></script>
+    <script>
+        setTimeout("$('.body').css('transform','translateY(0)');", 1000);
+        // setTimeout("$('.main-desc').addClass('b-show')", 1500);
+        setTimeout("$('body').addClass('add-scroll')", 3000);
+        setTimeout("$('html').addClass('add-scroll')", 3000);
+
+
+        $(".glow-button").on("click", function () {
+            $(".comment-item").addClass("comment-item-show");
+            $(".glow-button").addClass("hide");
+            $(".shine-button").addClass("show");
+        });
+        const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+
+const currentDate = new Date();
+const currentMonthIndex = currentDate.getMonth();
+const currentMonth = months[currentMonthIndex];
+const nextMonthIndex = (currentMonthIndex + 1) % 12;
+const nextMonth = months[nextMonthIndex];
+
+var montha = currentMonth
+
+
+        const OFFER = '«OFER»'
+        let now = new Date();
+        let mm = now.getMonth() + 1;
+        let day = now.getDate();
+        let year = now.getFullYear();
+        let date = '' + day + '.' + mm + '.' + year + '';
+        const massange = [{
+            m: "Здравствуйте, меня зовут Фридрих Фишер. Я уролог, андролог. Добро пожаловать на мой сайт. "
+        }, {
+            m: "Здесь я провожу бесплатную онлайн-диагностику и личные консультации, которые помогли вылечить простатит и улучшить эректильную дисфункцию тысячам людей."
+        }, {
+            m: "Пожалуйста, ответьте на несколько вопросов"
+        }, {
+            m: "Распространенность заболевания объясняются следующими факторами:сидячий образ жизни; нерегулярная половая жизнь;   плохие привычки;       инфекционные заболевания;   наследственная предрасположенность;  стресс."
+        }, {
+            m: "В вашей жизни присутствует хоть один из этих факторов ?  "
+        }
+            , {
+            m: " Есть ли у вас боли внизу живота, в мошонке, в промежности или половом члене, частое мочеиспускание, жжение уретры, снижение сексуального влечения, ухудшение продолжительности и качества эрекции, преждевременное семяизвержение или проблемы с его достижением ?  "
+        }, {
+            m: "Насколько активный образ жизни вы ведете? "
+        }, {
+            m: "Ваш возраст? "
+        }, {
+            m: "Спасибо за ответы. Важно не игнорировать первые признаки простатита, по вашим ответам можно совершенно точно сказать, что у вас воспаленная простата. Основная причина вашего заболевания - загрязненные сосуды. Единственный способ эффективно бороться с простатитом — улучшить эректильную функцию и очистить сосуды. "
+        }, {
+            m: "Проблема заключается в том, что большинство мужчин, страдающих от простатита, не обращаются за помощью к врачам. Некоторые из них не осознают серьезности проблемы, в то время как другие считают это стыдным. В итоге многие пациенты просто игнорируют свои симптомы. Те, кто все-таки обращается за помощью, чаще всего делают это уже слишком поздно, когда начинается развитие раковой опухоли. "
+        }, {
+            m: "Эректильная дисфункция присутствует у всех мужчин с простатитом, независимо от времени ее появления. Рак простаты может возникнуть как на ранних, так и на поздних стадиях простатита. Даже если у вас нет этих симптомов, рекомендуется профилактически очищать сосуды не реже, чем раз в 5 лет после достижения 30 лет. Это поможет сохранить здоровье и способность к полноценной сексуальной жизни, а также предотвратить возникновение простатита."
+        }, {
+            m: "Для безопасной очистки сосудов могу назвать только одно средство с безупречной репутацией. Я говорю о специальном препарате "+ OFFER +". Это средство, которое позволяет в кратчайшие сроки, буквально от 4-х дней, забыть о боли, и в течение месяца вылечить даже очень сложные случаи."
+        }, {
+            m: "<img src='assets/img/product.png' style='width: 100%; max-width: 400px; margin-top: 10px'>"
+        }, {
+            m: "Он продлевает жизнь на 15-20 лет восстанавливает функции простаты, улучшает эрекцию и предотвращает бесплодие."
+        }, {
+            m: ""+ OFFER +" стимулирует организм человека на производство антител, которые воздействуют на яичники и иммунную систему. Заметные результаты обычно появляются уже через 1-2 недели регулярного использования. В отличие от многих других препаратов от воспаления простаты, "+ OFFER +" разработан специалистами в данной области, а не крупными фармацевтическими компаниями, и был создан в сотрудничестве с ведущими урологами и учеными."
+        }, {
+            m: "В результате исследований выяснилось, что " + montha + " – лучшее время для начала лечения. За счет стабилизации средней температуры ускоряются обменные процессы в организме, повышается эффективность препарата. Лечение проходит на 37% быстрее по сравнению с другими периодами года."
+        }, {
+            m: "Единственное, что я хотел бы подчеркнуть, это то, что вы не должны быть безразличны к своей жизни. Простатит – очень опасное заболевание и при отсутствии лечения в 50% случаев превращается в злокачественную опухоль простаты. У вас есть симптомы начните бороться с болезнью, пока еще есть возможность остановить ее обострение!"
+        }, {
+            m: "У меня также есть для вас очень хорошая новость. Вам поставили диагноз онлайн и вы стали моим 3000-м клиентом!"
+        },]
+
+        $(".content").animate({
+            scrollTop: $('.chat-content-list').height()
+        }, 700);
+
+        var mass_id = 0;
+        var length_mass = 0;
+        var lengt_num_mas = 0;
+        var text = '';
+        var speedtext = 50; // скорость вывода сообщений
+        var process = true;
+        setTimeout(() => {
+
+            $(".content").animate({
+                scrollTop: $('.chat-content-list').height()
+            }, 700);
+
+            var h = new Date();
+            var minut = ('0' + h.getMinutes()).slice(-2);
+            var hours = ('0' + h.getHours()).slice(-2);
+            var time = hours + ":" + minut
+
+            const body_mas = '<div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="text" id="mass' + mass_id + '"></p></div></div></div>';
+            $('.chat-content-list').append(body_mas);
+            const mas_inf = setInterval(function () {
+                if (process == true) {
+                    if (lengt_num_mas != massange.length) {
+                        text += massange[lengt_num_mas].m[length_mass];
+                        length_mass++
+                        $('#mass' + lengt_num_mas + '').html(text);
+                        if (lengt_num_mas === 4 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                            question1();
+                            process = false;
+                            choise1();
+                            $("#scroll_id").addClass("hide-q");
+                            $(".content").animate({
+                                scrollTop: $('.chat-content-list').height()
+                            }, 700);
+                            $("#scroll_id").removeClass("hide-q");
+                        }
+                        if (lengt_num_mas === 5 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                            question2();
+                            process = false;
+                            choise2();
+                            $("#scroll_id").addClass("hide-q");
+                            $(".content").animate({
+                                scrollTop: $('.chat-content-list').height()
+                            }, 700);
+                            $("#scroll_id").removeClass("hide-q");
+                        }
+                        if (lengt_num_mas === 6 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                            question3();
+                            process = false;
+                            choise3();
+                            $("#scroll_id").addClass("hide-q");
+                            $(".content").animate({
+                                scrollTop: $('.chat-content-list').height()
+                            }, 700);
+                            $("#scroll_id").removeClass("hide-q");
+                        }
+                        if (lengt_num_mas === 7 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                            question4();
+                            process = false;
+                            choise4();
+                            $("#scroll_id").addClass("hide-q");
+                            $(".content").animate({
+                                scrollTop: $('.chat-content-list').height()
+                            }, 700);
+                            $("#scroll_id").removeClass("hide-q");
+                        }
+                        if (lengt_num_mas === 18 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                            
+                            $("#scroll_id").addClass("hide-q");
+                            $(".content").animate({
+                                scrollTop: $('.chat-content-list').height()
+                            }, 700);
+                            $("#scroll_id").removeClass("hide-q");
+                        }
+                        // if (lengt_num_mas === 17 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                        //     question5();
+                        //     process = false;
+                        //     choise5();
+                        //     $("#scroll_id").addClass("hide-q");
+                        //     $(".content").animate({
+                        //         scrollTop: $('.chat-content-list').height()
+                        //     }, 700);
+                        //     $("#scroll_id").removeClass("hide-q");
+                        // }
+                        // if (lengt_num_mas === 9 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                        //     question6();
+                        //     process = false;
+                        //     choise6();
+                        //     $("#scroll_id").addClass("hide-q");
+                        //     $(".content").animate({
+                        //         scrollTop: $('.chat-content-list').height()
+                        //     }, 700);
+                        //     $("#scroll_id").removeClass("hide-q");
+                        // }
+                        // if (lengt_num_mas === 10 && length_mass === massange[lengt_num_mas].m.length - 1) {
+                        //     question7();
+                        //     process = false;
+                        //     choise7();
+                        //     $("#scroll_id").addClass("hide-q");
+                        //     $(".content").animate({
+                        //         scrollTop: $('.chat-content-list').height()
+                        //     }, 700);
+                        //     $("#scroll_id").removeClass("hide-q");
+                        // }
+                        if (length_mass == massange[lengt_num_mas].m.length) {
+                            lengt_num_mas++
+                            mass_id++
+                            length_mass = 0;
+                            text = '';
+                            app();
+                            let proc_scroling = lengt_num_mas - 1;
+
+                        }
+                    } else {
+                        clearInterval(mas_inf);
+
+                        $('#mass' + lengt_num_mas + '').parent().parent().css('display', 'none');
+                        $(".iframe-form").addClass("show");
+                        // getValueQuest();
+                        $(".btn-top").addClass("show");
+                    }
+                } else { }
+            }, speedtext)
+        }, 1000)
+
+
+        function app() {
+
+            var h = new Date();
+            var minut = ('0' + h.getMinutes()).slice(-2);
+            var hours = ('0' + h.getHours()).slice(-2);
+            var time = hours + ":" + minut;
+
+            var div = $(".chat-content-list").height() + 100;
+            var win = $('.content').height();
+
+            if (div > win) {
+                $("#scroll_id").removeClass("hide");
+                var i = $(".inp").val();
+                $(".inp").val(++i);
+
+            }
+
+            const body_mas = '<div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="text" id="mass' + mass_id + '"></p></div></div></div>';
+
+            $('.chat-content-list').append(body_mas);
+
+
+            $(".content").animate({
+                scrollTop: $('.chat-content-list').height()
+            }, 700);
+        }
+
+        function myMassange(userGend) {
+
+
+            var h = new Date();
+            var minut = ('0' + h.getMinutes()).slice(-2);
+            var hours = ('0' + h.getHours()).slice(-2);
+            var time = hours + ":" + minut;
+
+            let mass = '<div class="chat-content-item user item-active"><div class="chat-content-desc"><div class="chat-content-desc-item user"><p class="text" class="users_mass">' + userGend + '</p></div></div></div>';
+            $('.chat-content-list').append(mass);
+            $(".content").animate({
+                scrollTop: $('.chat-content-list').height()
+            }, 700);
+
+        }
+
+        function question1() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question1M">Да</span></div><div class="chat-content-buttons-gender-block"><span class="question1W">Нет</span></div></div>');
+        }
+
+        function choise1() {
+            $('.question1M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Да');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question1W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Нет');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+           
+        }
+
+        function question2() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question2M">Да</span></div><div class="chat-content-buttons-gender-block"><span class="question2W">Нет</span></div></div>');
+        }
+
+        function choise2() {
+            $('.question2M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Да');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question2W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Нет');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+           
+        }
+
+        function question3() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question3M">Я занимаюсь спортом 3-5 раз в неделю. </span></div><div class="chat-content-buttons-gender-block"><span class="question3W">Я занимаюсь спортом  1-3 раза в неделю.</span></div><div class="chat-content-buttons-gender-block"><span class="question3P">Физических упражнений вообще нет.</span></div></div>');
+        }
+
+        function choise3() {
+            $('.question3M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Я занимаюсь спортом 3-5 раз в неделю. ');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question3W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Я занимаюсь спортом  1-3 раза в неделю.');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question3P').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Физических упражнений вообще нет.');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+          
+        }
+
+        function question4() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question4M">До 20 Лет</span></div><div class="chat-content-buttons-gender-block"><span class="question4W">20-30 лет </span></div><div class="chat-content-buttons-gender-block"><span class="question4P">31-40 лет</span></div><div class="chat-content-buttons-gender-block"><span class="question4T">41-50</span></div><div class="chat-content-buttons-gender-block"><span class="question4O">Старше 50 Лет</span></div></div>');
+        }
+
+        function choise4() {
+            $('.question4M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('До 20 Лет');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question4W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('20-30 лет ');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question4P').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('31-40 лет');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question4T').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('41-50');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question4O').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('Старше 50 Лет');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+        }
+
+        function question5() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question5M">20 के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5W">20 से 30 के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5P">31 से 40 साल के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5T">41 से 50 साल के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5G">50 से ऊपर</span></div></div>');
+        }
+
+        // function choise5() {
+        //     $('.question5M').click(() => {
+        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+        //         myMassange('20 के करीब');
+        //         $('.chat-content-buttons-gender').css('display', 'none');
+        //         setTimeout(() => {
+        //             process = true;
+        //         }, 500)
+        //     });
+        //     $('.question5W').click(() => {
+        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+        //         myMassange('20 से 30 के करीब');
+        //         $('.chat-content-buttons-gender').css('display', 'none');
+        //         setTimeout(() => {
+        //             process = true;
+        //         }, 500)
+        //     });
+        //     $('.question5P').click(() => {
+        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+        //         myMassange('31 से 40 साल के करीब');
+        //         $('.chat-content-buttons-gender').css('display', 'none');
+        //         setTimeout(() => {
+        //             process = true;
+        //         }, 500)
+        //     });
+        //     $('.question5T').click(() => {
+        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+        //         myMassange('41 से 50 साल के करीब');
+        //         $('.chat-content-buttons-gender').css('display', 'none');
+        //         setTimeout(() => {
+        //             process = true;
+        //         }, 500)
+        //     });
+        //     $('.question5G').click(() => {
+        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+        //         myMassange('50 से ऊपर');
+        //         $('.chat-content-buttons-gender').css('display', 'none');
+        //         setTimeout(() => {
+        //             process = true;
+        //         }, 500)
+        //     });
+        // }
+
+        function question6() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question6M">60 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6W">61 से 70 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6P">71 से 80 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6T">81 से 90 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6O">90 से अधिक</span></div></div>');
+        }
+
+        function choise6() {
+            $('.question6M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('60 किग्रा तक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question6W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('61 से 70 किग्रा तक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question6P').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('71 से 80 किग्रा तक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question6T').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('81 से 90 किग्रा तक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+            $('.question6O').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('90 से अधिक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            })
+        }
+
+        function question7() {
+            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question7M">150 सेमी से कम</span></div><div class="chat-content-buttons-gender-block"><span class="question7W">150-160 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7P">161-170 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7T">171-180 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7G">180 सेमी से अधिक</span></div></div>');
+        }
+
+        function choise7() {
+            $('.question7M').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('150 सेमी से कम');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            });
+            $('.question7W').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('150-160 सेमी के बीच');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            });
+            $('.question7P').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('161-170 सेमी के बीच');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            });
+            $('.question7T').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('171-180 सेमी के बीच');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            });
+            $('.question7G').click(() => {
+                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
+                myMassange('180 सेमी से अधिक');
+                $('.chat-content-buttons-gender').css('display', 'none');
+                setTimeout(() => {
+                    process = true;
+                }, 500)
+            });
+        }
+
+
+
+        // $('.content').scroll(function () {
+        //     if (document.getElementById('res').value == "0") {
+        //         $("#scroll_id").addClass("aba");
+        //     } else {
+        //         $("#scroll_id").removeClass("aba");
+        //     }
+        // });
+
+
+        $(".manager").scroll(function () {
+            $(".chat-content-list").animate({
+                scrollTop: $('#down-box').height()
+            }, 700);
+        });
+
+
+        /* Скролл к якорю */
+        // $("[data-scroll]").on("click", function (event) {
+        //     $(".content").animate({
+        //         scrollTop: $('.chat').height()
+        //     }, 700);
+        //     $("#scroll_id").addClass("hide");
+        // });
+
+
+        $(".to_form").on("touchend, click", function (e) {
+            e.preventDefault();
+            $('body,html').animate({
+                scrollTop: $('#form').offset().top
+            }, 400);
+        });
+
+
+
+        // /* Скрыть/показать кнопку скролла */
+        // var $marker = $('#down-box');
+        // $('.content').scroll(function () {
+
+        //     if ($('.content').scrollTop() + $('.content').height() >= $('.chat').height() + 100) {
+        //         document.getElementById('res').value = "0";
+        //         $("#scroll_id").addClass("hide");
+        //     } else {
+        //         $("#scroll_id").removeClass("hide");
+        //     }
+        // });
+
+    </script>
+    <script>
+        var d = new Date();
+        var hours = d.getHours() % 12;
+        var minut = ('0' + d.getMinutes()).slice(-2);
+        var hour = ('0' + d.getHours()).slice(-2);
+        var time = hour + ":" + minut;
+        hours = hours ? hours : 12;
+        var monthA = 'Январь, февраль, март, апрель, май, июнь, июль, август, сентябрь, октябрь, ноябрь, декабрь'.split(',');
+        var p = new Date(d.getTime());
+        var test = monthA[p.getMonth()] + " " + p.getDate() + " " + time;
+        document.querySelector(".date").innerHTML = test;
+    </script>
+    <!-- INTH_SNIPPET_BOTTOM -->
+</body>
+
+</html>

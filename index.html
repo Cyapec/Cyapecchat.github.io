@@ -1,958 +1,2547 @@
 <!DOCTYPE html>
-<html lang="ru" class="add-scroll">
+<html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Фридрих Фишер (бесплатная консультация)</title>
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/style-f7a-arb.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/style_h25.min.css">
+  <link href="css/header.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main1.css">
+  <link rel="stylesheet" href="css/style1.css">
+
+  <script src="js/postDate.js"></script>
+
+  <script>
+    var months = [
+      "Janvier",
+      "Février",
+      "Mars",
+      "Avril",
+      "Mai",
+      "Juin",
+      "Juillet",
+      "Août",
+      "Septembre",
+      "Octobre",
+      "Novembre",
+      "Décembre"
+    ];
+
+
+    function month(e) {
+      if (e) {
+        var r = new Date;
+        return months[r.getMonth() - 1];
+      }
+
+      var t = new Date;
+      return months[t.getMonth()];
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .comments:after {
+      border-color: #fff;
+    }
+
+    .comments:before {
+      background-color: #fff;
+    }
+
+    .comments .comment {
+      background: #fff;
+      border-radius: 10px;
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+
+    .comments [class*="level-"] .photo:before {
+      background-color: #fff;
+    }
+
+    .comments .meta {
+      color: #5a5a5a;
+    }
+
+    .comments .meta a {
+      color: inherit;
+    }
+
+    .comments .meta a:hover {
+      color: #34b5d0;
+    }
+
+    .comments .body {
+      color: #888;
+    }
+
+    .comments {
+      list-style-type: none;
+      padding: 5px 0 0 46px;
+      position: relative;
+      margin: 20px 0 0 12px;
+    }
+
+    .comments:before,
+    .comments .comment,
+    .comments .comment:after,
+    .comments .comment:before,
+    .comments .photo img,
+    .comments [class*="level-"] .photo:before {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    }
+
+    .comments:after,
+    .comments:before {
+      display: block;
+      content: '';
+      position: absolute;
+    }
+
+    .comments:before {
+      border-radius: 0 0 5px 5px;
+      height: 100%;
+      width: 8px;
+      left: 0;
+      top: 0;
+    }
+
+    .comments:after {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 1px 3px rgba(0, 0, 0, .4) inset;
+      border-width: 4px;
+      border-style: solid;
+      border-radius: 18px;
+      height: 10px;
+      width: 10px;
+      left: -5px;
+      top: -16px;
+      z-index: -1;
+    }
+
+    .comments .comment {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .comments .comment:after,
+    .comments .comment:before {
+      border-radius: 10px;
+      background-color: #fff;
+      position: absolute;
+      display: block;
+      content: '';
+    }
+
+    .comments .comment:after {
+      width: 12px;
+      height: 12px;
+      left: -14px;
+      top: 7px;
+    }
+
+    .comments .comment:before {
+      width: 5px;
+      height: 5px;
+      left: -22px;
+      top: 16px;
+    }
+
+    .comments .photo {
+      position: absolute;
+      left: -60px;
+      top: 2px;
+    }
+
+    .comments .photo img {
+      width: 40px;
+      height: 40px;
+
+      border: 1px solid #fff;
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    .comments .meta {
+      margin-bottom: 5px;
+    }
+
+    .comments .meta .reply {
+      display: none;
+      float: right;
+    }
+
+    .comments .comment:hover .reply {
+      display: block;
+    }
+
+    .comments [class*="level-"] .photo:before {
+      display: block;
+      content: '';
+      position: absolute;
+      margin-top: -2px;
+      height: 4px;
+      width: 20px;
+      left: -10px;
+      top: 50%;
+      z-index: -1;
+    }
+
+    .comments .level-2 {
+      margin-left: 30px;
+    }
+
+    .comments .level-3 {
+      margin-left: 50px;
+    }
+
+    .comments .level-4 {
+      margin-left: 70px;
+    }
+
+    .comments .level-5 {
+      margin-left: 90px;
+    }
+
+    .comments .level-6 {
+      margin-left: 110px;
+    }
+
+    .comments .level-3 .photo:before {
+      width: 40px;
+      left: -30px;
+    }
+
+    .comments .level-4 .photo:before {
+      width: 60px;
+      left: -50px;
+    }
+
+    .comments .level-5 .photo:before {
+      width: 80px;
+      left: -70px;
+    }
+
+    .comments .level-6 .photo:before {
+      width: 100px;
+      left: -90px;
+    }
+
+    .commfb {
+      width: auto;
+    }
+
+    @media(max-width: 800px) {
+      .commfb {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <style>
+    .prod-imgs {
+      display: flex;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 850px) {
+      .prod-imgs {
+        display: none;
+      }
+    }
+  </style>
+
+  <style>
+    .items-wrap {
+      background-color: red;
+
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      gap: 20px;
+    }
+
+    .items-wrap:before,
+    .items-wrap:after {
+      content: "";
+      height: 100%;
+      top: 0;
+      width: 10%;
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .item {
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .items {
+      flex-shrink: 0;
+      display: flex;
+      gap: 20px;
+      counter-reset: item;
+      justify-content: space-around;
+      min-width: 100%;
+    }
+
+    .marquee {
+      animation: scroll 20s linear infinite;
+    }
+
+    .items-wrap:hover .marquee {
+      animation-play-state: paused;
+    }
+
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-100% - 20px));
+      }
+    }
+
+    input {
+      border-style: solid;
+
+    }
+  </style>
+
+  <style>
+    @media (max-width: 800px) {
+
+      #hand1,
+      #hand2,
+      #hand3,
+      #hand4 {
+        animation: pulse 1s infinite alternate;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+    }
+
+    .hand_photo:hover {
+      transform: scale(2);
+    }
+
+    .div_hid_photo {
+      background-color: #eee;
+      position: relative;
+      padding: 10px;
+      vertical-align: top;
+      margin: 10px 0;
+    }
+
+    .hand_photo {
+      width: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+     ;
+      z-index: 10;
+    }
+
+    .blur {
+      filter: blur(12px);
+      transition: filter 0.5s;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .div_hid_photo .image_horizontal {
+      width: 100%;
+      max-width: 540px;
+      display: block;
+    }
+
+    .block {
+      display: block !important;
+    }
+
+    .hand_photo {
+      width: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      transition: transform 0.5s;
+      cursor: pointer;
+    }
+
+    .pulse {
+      transform: scale(4);
+    }
+
+    @media screen and (min-width:1100px) {
+
+      .div_hid_photo {
+        border-radius: 20px 13px;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+    }
+  </style>
+
+  <style>
+    .spisoks {
+      margin-top: 15px;
+    }
+
+    .spisok_ul {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .spisok_ul li:hover {
+      transform: scale(1.03);
+      transition: all ease-in 0.3s;
+    }
+
+    .spisok .spisok_ul li {
+      margin-bottom: 12px;
+    }
+
+
+
+    .spisok_ul li {
+      padding-left: 10px !important;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 25px;
+      font-weight: 600;
+      text-align: left;
+      background-color: #e8eef3c6;
+      padding: 10px;
+      border-left: 5px solid #3167a5;
+      color: #000000;
+      text-decoration: none;
+      list-style: none;
+      margin-left: 0 !important;
+      padding: 12px;
+      border-radius: 5px;
+    }
+
+    .spisok_ul p {
+      color: #000000;
+      text-decoration: none;
+      margin: 0;
+      line-height: normal;
+    }
+  </style>
+
+  <style>
+    .very-nice * {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+
+    .very-nice {
+      list-style: none;
+      counter-reset: list;
+      padding-left: 0;
+    }
+
+    .very-nice li {
+      position: relative;
+      counter-increment: list;
+      max-width: 100%;
+      margin: 10px 0;
+      padding: 20px 5px 10px !important;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 0.25rem;
+      overflow: hidden;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s linear;
+    }
+
+    .very-nice li:hover {
+      transform: scale(1.02);
+    }
+
+    .very-nice li::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 7px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #337AB7;
+    }
+
+    .very-nice h3 {
+      display: flex;
+      align-items: baseline;
+      color: rgb(70 70 70);
+    }
+
+    .very-nice h3::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+      margin-right: 20px;
+      width: 25px;
+      height: 25px;
+      content: counter(list);
+      padding: 10px;
+      border-radius: 50%;
+      background-color: #337AB7;
+      color: white;
+    }
+
+    .very-nice p {
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    @media (min-width: 450px) {
+      .very-nice li {
+        margin: 10px 0;
+        padding: 30px 10px 10px;
+
+      }
+
+      .very-nice h3 {
+        font-size: 25px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .very-nice h3::before {
+        margin-right: 15px;
+
+      }
+
+      .very-nice p {
+        margin: 0;
+        line-height: 1.6;
+        font-size: 17px;
+        font-weight: bold
+      }
+
+    }
+  </style>
+
+  <style>
+    .spisok_tri_conteiner h2 {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .spisok_tri li:nth-child(odd) {
+      background-color: #f9f9f9;
+      border: 1px solid #e9e9e9;
+    }
+
+    .spisok_tri li {
+      border: 1px solid #e9e9e9;
+      background-color: #e9e9e9;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 25px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      font-size: large;
+      font-weight: 500;
+      font-family: "Roboto Condensed", sans-serif;
+      list-style: none;
+    }
+
+    .spisok_tri li:hover {
+      transform: scale(1.05);
+    }
+
+    .spisok_tri {
+      padding-left: 10px;
+    }
+  </style>
+
+  <style>
+    .pol:hover {
+      letter-spacing: 0.8rem;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .link_1:hover {
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width:700px) {
+      .content11 {
+        flex-direction: column;
+        padding-bottom: 0;
+      }
+
+    }
+
+    .content_12:hover {
+      background-color: #8192a4a6;
+      border-radius: 10px;
+      transition: all 0.5s ease-out;
+    }
+
+    .content_12 {
+      padding: 10px;
+    }
+
+    .section-3 {
+      background-color: #123355;
+    }
+
+    footer div {
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content_12 {
+      margin-top: 10px;
+      margin-left: 10px;
+      color: #8192a4;
+    }
+
+    .div-block_40 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+    }
+
+    .image_32 {
+      width: auto;
+      height: auto;
+    }
+
+    .image_32 {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .link_1 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    @media screen and (max-width: 767px) {
+      .content_12 {
+        font-weight: 500;
+      }
+
+
+
+      .div-block_40 {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+
+    }
+
+    .content_12 {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 
-<body class="add-scroll">
-    <style>
-    
-    
-    
-    .container-1 {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
-        overflow: hidden;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .form-container {
-        padding: 15px;
-        flex: 50%;
-    }
-    
-    .form-container form {
-        background: #fff;
-        flex-direction: column;
-        padding: 0 20px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .form-container label {
-        font-size: 18px;
-        font-weight: bold;
-    }
-    
-    .red-border,
-    .red-border__text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .red-border {
-        position: relative;
-        color: #fff;
-        width: 85px;
-        height: 85px;
-        font-size: 30px;
-        font-weight: bold;
-        margin: 15px auto;
-    }
-    
-    .red-border__text {
-        position: relative;
-        width: 85px;
-        height: 85px;
-        background-color:red;
-        border-radius: 50%;
-        font-size: 30px;
-        font-weight: bold;
-    }
-    
-    .overlay-panel {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-            padding: 20px 40px;
-        height: 100%;
-        text-align: center;
-    }
-    
-    .overlay-container {
-        background: #ff416c;
-        background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
-        color: #fff;
-        width: 100%;
-        flex: 50%;
-    }
-    .form-container input {
-    font-size:20px;
-    font-weight: bold;
-        padding: 12px 15px;
-        margin: 15px 0;
-        width: 100%;
-        border-radius: 10px;
-        border-width: 3px;
-    border-color:#1A8BDC;
-    }
-    
-    .columns {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .text-span-6 {
-        font-size: 25px;
-    }
-    
-    .text-span-6 {
-        font-size: 20px;
-    }
-    
-    .text-span-7 {
-        font-size: 25px;
-    }
-    
-    .red {
-        text-decoration: line-through;
-        color: red;
-    }
-    
-    .green {
-        color: green;
-    }
-    
-    button {
-        border-radius: 20px;
-    border:none;
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 20px 50px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: transform 80ms ease-in;
-    }
-    
-    
-    
-    @media screen and (max-width: 768px) {
-        .container-1 {
-            flex-direction: column;
-        }
-    
-        .columns {
-            flex-direction: column;
-        }
-    }</style>
-     <style>
-
-        .items-wrap {
-            background-color: red;
-        
-          position: relative;
-          display: flex;
-          overflow: hidden;
-          user-select: none;
-          gap: 20px;
-        }
-        .items-wrap:before,
-        .items-wrap:after {
-          content: "";
-          height: 100%;
-          top: 0;
-          width: 10%;
-          position: absolute;
-          z-index: 1;
-          pointer-events: none;
-        }
-
-        .item{
-            font-size: 30px;
-            color: white;
-            font-weight: bold;
-        }
-        .items {
-          flex-shrink: 0;
-          display: flex;
-          gap: 20px;
-          counter-reset: item;
-          justify-content: space-around;
-          min-width: 100%;
-        }
-        
-        .marquee {
-          animation: scroll 20s linear infinite;
-        }
-        .items-wrap:hover .marquee {
-          animation-play-state: paused;
-        }
-        
-        @media screen and (max-width:769px) {
-            .container-1{max-width: 540px;}
-
-        }
-        @media screen and (max-width:600px) {
-            .container-1{max-width: 340px;}
-            
-        }
-        @media screen and (min-width:1000px) {
-            .container-1{max-width: 720px;}
-            
-        }
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(calc(-100% - 20px));
-          }
-        }
-        input{
-            border-style: solid;
-
-        }
-            </style>
-    <div class="body">
-        <div class="header-head">
-            <div class="top">
-                <div class="top-row">
-                    <img src="assets/img/facebook.svg" alt="" class="top-facebook">
-                    <input type="search" class="top-search" placeholder="Поиск">
-                    <img src="assets/img/top-icons.svg" alt="" class="top-icons">
-                    <img src="assets/img/top-settings.svg" alt="" class="top-settings">
-                </div>
+<body>
+  <header style="background-color: #3167a5;">
+    <div class="header_desc">
+      <div style="display: flex; justify-content: space-between;align-items: center;padding: 15px;">
+        <div style="width: 114px;"><a href="#" style="text-decoration: none;">
+            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;"> <span
+                style="color: #e6c844;" class="header_img"><img class="header_img" src="images/211.png" alt=""></span>
             </div>
-            <div class="header">
-                <div class="container">
-                    <div class="header__body">
-                        <div class="header__name">
-                            <div class="header__avatar">
-                                <img src="assets/img/header-ava-eac-arb.png" alt="">
-                            </div>
-                            <div class="header__desc">
-                                <p><span>Фридрих Фишер</span></p>
-                                <p>(бесплатная консультация)</p>
-                            </div>
-                        </div>
-                        <div class="header__connection">
-                            <img src="assets/img/connection.svg" alt="" class="hidden-xs">
-                            <img src="assets/img/phone.svg" alt="" class="hidden-lg">
-                            <img src="assets/img/video.svg" alt="" class="hidden-lg">
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </a></div>
+        <a href="#"><img class="header_img" src="images/uni-logo.svg" alt=""></a>
+        <div>
+          <a href="#"> <img class="header_img" src="images/121.png" alt=""></a>
+          <a href="#"> <img class="header_img" src="images/123.png" alt=""></a>
+          <a href="#"> <img class="header_img" src="images/124.png" alt=""></a>
+          <a href="#"> <img class="header_img" src="images/125.png" alt=""></a>
+
         </div>
-        <div class="content">
-            <div class="container">
-             
-                <div class="chat">
-                    <div class="chat__time">
-                        <p><span class="date"></span></p>
-                    </div>
-                    <div class="chat-content-list"> </div>
 
-                    <div id="form" class="iframe-form zakaz">
-                        <div id="order" class="boxit">
+      </div>
+      <ul style="color: white;display: flex;justify-content: space-between;padding: 20px;align-items: center;">
 
-                            <div class="frame-container">
 
-                                <div class="row-form">
 
-                                    <div class="cnn-promoblock-product-box">
-                                      
-                                        <div class="cnn-promoblock-product-box-inner">
-                                            <div class="cnn-promoblock-product-box-left">
-                                                <div class="cnn-promoblock-product-box-product-link w-inline-block">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="cnn-promoblock-product-box-right">
-                                               
-                                                <div class="form-container sign-up-container">
-                                                    <div class="container-1" style="display: block;border-style:solid;border-color: #1A8BDC;" id="container">
-                                                        <div class="wrap" style="height: 40px;">
-                                                            <div class="items-wrap">
-                                                              <div class="items marquee">
-                                                                <div class="item" data-dl-uid="214" >50%</div>
-                                                                <div class="item" data-dl-uid="215" >50%</div>
-                                                                <div class="item" data-dl-uid="216" >50%</div>
-                                                                <div class="item" data-dl-uid="217" >50%</div>
-                                                                <div class="item" data-dl-uid="218" >50%</div>
-                                                                <div class="item" data-dl-uid="219" >50%</div>
-                                                                <div class="item" data-dl-uid="220" >50%</div>
-                                                                <div class="item" data-dl-uid="221" >50%</div>
-                                                                <div class="item" data-dl-uid="222" >50%</div>
-                                                                <div class="item" data-dl-uid="223" >50%</div>
-                                                              </div>
-                                                              <div aria-hidden="true" class="items marquee">
-                                                                <div class="item" data-dl-uid="224" >50%</div>
-                                                                <div class="item" data-dl-uid="225" >50%</div>
-                                                                <div class="item" data-dl-uid="226" >50%</div>
-                                                                <div class="item" data-dl-uid="227" >50%</div>
-                                                                <div class="item" data-dl-uid="228" >50%</div>
-                                                                <div class="item" data-dl-uid="229" >50%</div>
-                                                                <div class="item" data-dl-uid="230" >50%</div>
-                                                                <div class="item" data-dl-uid="231" >50%</div>
-                                                                <div class="item" data-dl-uid="232" >50%</div>
-                                                                <div class="item" data-dl-uid="233" >50%</div>
-                                                                      </div>
-                                                            </div>
-                                                    
-                                                          </div>
-                                                       
-                                                         <div class="container-1">
-                                                        <div style="flex: 50%;">
-                                                            <!--F-9-->
-                                                            <div class="overlay">
-                                                                <div class="overlay-panel overlay-left">
-                                                                    <img style="width: auto;max-width:300px" src="./assets/img/product.png" alt="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-container sign-up-container">
-                                                            <div class="columns _1234 w-row">
-                                                                <div class="w-col w-col-5">
-                                                                    <div class="text-block-5 _1234" data-dl-uid="234" >
-                                                                       <span class="text-span-6" data-dl-uid="235" ><strong class="bold-text-3 prc red" data-dl-uid="236" >
-                                                                                    298000 COP</strong></span><br data-dl-uid="237" >
-                                                                    </div>
-                                                                </div>
-                                                                <div class="w-col w-col-2">
-                                                                    <div class="red-border">
-                                                                        <div class="red-border__text text-black" data-dl-uid="238" >-50%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="w-col w-col-5">
-                                                                    <div class="text-block-6_1" data-dl-uid="239" >
-                                                                       <span class="text-span-7" data-dl-uid="240" ><strong class="_1-2 prc green" data-dl-uid="241" >149000 COP</strong></span><br data-dl-uid="242" >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                
-                                                            
-                                                            <form action="order.php" method="post" style="margin-top: 15px;">
-                                                                <div id="eee" style="float: right;display: none;">
-                                                                <div class="nam" style="position: absolute;margin-left: -140px;margin-top: -12px;"><p style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;"><b>Andrea Garcia.</b></p></div>
-                                                </div>  
-                                                                <div class="" style="display: flex;">
-                                                                <input type="text" onfocus="placen()" onfocusout="placen2()" id="name" name="name" placeholder="Su nombre" maxlength="100" required="">
-                                                            </div>
-                                                            <div id="eee2" style="float: right;display: none;">
-                                                                <div class="nam" style="position: absolute;margin-left: -185px;margin-top: -12px;"><p style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;"><b>+57XXXXXXXXX</b></p></div>
-                                                </div>  
-                                                                <div class="" style="display: flex;">
-                                                                <input type="tel" onfocus="placeh()" onfocusout="placeh2()" name="phone" placeholder="Tu número de teléfono" minlength="5" required="">
-                                                                </div>
-                                                                <button style="background-color: #1A8BDC;" data-dl-uid="243" >Encargar Prostavar</button>
-                                                
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- form -->
-                    </div>
-                    <div id="down-box"></div>
-                </div>
-            </div>
-        </div>
-        <footer class="footer">
-            <div class="footer-row">
-                <div class="footer-add">
-                    <img src="assets/img/footer-add.svg" alt="">
-                </div>
-                <div class="footer-input">
-                    <input type="text">
-                    <img src="assets/img/footer-input.svg" class="footer-image" alt="">
-                </div>
-            </div>
-        </footer>
+
+
+
+
+        <li><a href="#" class="nav_li"></a></li>
+        <li><a href="#" class="nav_li"> Politique</a></li>
+        <li><a href="#" class="nav_li"> Justiție</a></li>
+        <li><a href="#" class="nav_li"> Social</a></li>
+        <li><a href="#" class="nav_li"> Économique</a></li>
+        <li><a href="#" class="nav_li"> Tech</a></li>
+        <li><a href="#" class="nav_li"> Le sport</a></li>
+        <li><a href="#" class="nav_li"> Auto</a></li>
+        <li><a href="#" class="nav_li"> Cultură</a></li>
+        <li><a href="#" class="nav_li"> Turisme</a></li>
+      </ul>
     </div>
-    <script src="assets/js/jquery.countdown.min-5f9-arb.js"></script>
-    <script>
-        setTimeout("$('.body').css('transform','translateY(0)');", 1000);
-        // setTimeout("$('.main-desc').addClass('b-show')", 1500);
-        setTimeout("$('body').addClass('add-scroll')", 3000);
-        setTimeout("$('html').addClass('add-scroll')", 3000);
+    <style>
+      .menu-btn {
+        display: block;
+        width: 50px;
+        background-color: #3167a5;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
 
+      .mobile-menu {
+        display: none;
+      }
 
-        $(".glow-button").on("click", function () {
-            $(".comment-item").addClass("comment-item-show");
-            $(".glow-button").addClass("hide");
-            $(".shine-button").addClass("show");
-        });
-        const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+      .mobile-menu ul {
+        list-style: none;
+      }
 
-const currentDate = new Date();
-const currentMonthIndex = currentDate.getMonth();
-const currentMonth = months[currentMonthIndex];
-const nextMonthIndex = (currentMonthIndex + 1) % 12;
-const nextMonth = months[nextMonthIndex];
+      .mobile-menu ul li {
+        padding: 10px;
+      }
 
-var montha = currentMonth
+      .mobile-menu ul li a {
+        text-decoration: none;
+        color: #333;
+      }
 
-
-        const OFFER = '«OFER»'
-        let now = new Date();
-        let mm = now.getMonth() + 1;
-        let day = now.getDate();
-        let year = now.getFullYear();
-        let date = '' + day + '.' + mm + '.' + year + '';
-        const massange = [{
-            m: "Здравствуйте, меня зовут Фридрих Фишер. Я уролог, андролог. Добро пожаловать на мой сайт. "
-        }, {
-            m: "Здесь я провожу бесплатную онлайн-диагностику и личные консультации, которые помогли вылечить простатит и улучшить эректильную дисфункцию тысячам людей."
-        }, {
-            m: "Пожалуйста, ответьте на несколько вопросов"
-        }, {
-            m: "Распространенность заболевания объясняются следующими факторами:сидячий образ жизни; нерегулярная половая жизнь;   плохие привычки;       инфекционные заболевания;   наследственная предрасположенность;  стресс."
-        }, {
-            m: "В вашей жизни присутствует хоть один из этих факторов ?  "
-        }
-            , {
-            m: " Есть ли у вас боли внизу живота, в мошонке, в промежности или половом члене, частое мочеиспускание, жжение уретры, снижение сексуального влечения, ухудшение продолжительности и качества эрекции, преждевременное семяизвержение или проблемы с его достижением ?  "
-        }, {
-            m: "Насколько активный образ жизни вы ведете? "
-        }, {
-            m: "Ваш возраст? "
-        }, {
-            m: "Спасибо за ответы. Важно не игнорировать первые признаки простатита, по вашим ответам можно совершенно точно сказать, что у вас воспаленная простата. Основная причина вашего заболевания - загрязненные сосуды. Единственный способ эффективно бороться с простатитом — улучшить эректильную функцию и очистить сосуды. "
-        }, {
-            m: "Проблема заключается в том, что большинство мужчин, страдающих от простатита, не обращаются за помощью к врачам. Некоторые из них не осознают серьезности проблемы, в то время как другие считают это стыдным. В итоге многие пациенты просто игнорируют свои симптомы. Те, кто все-таки обращается за помощью, чаще всего делают это уже слишком поздно, когда начинается развитие раковой опухоли. "
-        }, {
-            m: "Эректильная дисфункция присутствует у всех мужчин с простатитом, независимо от времени ее появления. Рак простаты может возникнуть как на ранних, так и на поздних стадиях простатита. Даже если у вас нет этих симптомов, рекомендуется профилактически очищать сосуды не реже, чем раз в 5 лет после достижения 30 лет. Это поможет сохранить здоровье и способность к полноценной сексуальной жизни, а также предотвратить возникновение простатита."
-        }, {
-            m: "Для безопасной очистки сосудов могу назвать только одно средство с безупречной репутацией. Я говорю о специальном препарате "+ OFFER +". Это средство, которое позволяет в кратчайшие сроки, буквально от 4-х дней, забыть о боли, и в течение месяца вылечить даже очень сложные случаи."
-        }, {
-            m: "<img src='assets/img/product.png' style='width: 100%; max-width: 400px; margin-top: 10px'>"
-        }, {
-            m: "Он продлевает жизнь на 15-20 лет восстанавливает функции простаты, улучшает эрекцию и предотвращает бесплодие."
-        }, {
-            m: ""+ OFFER +" стимулирует организм человека на производство антител, которые воздействуют на яичники и иммунную систему. Заметные результаты обычно появляются уже через 1-2 недели регулярного использования. В отличие от многих других препаратов от воспаления простаты, "+ OFFER +" разработан специалистами в данной области, а не крупными фармацевтическими компаниями, и был создан в сотрудничестве с ведущими урологами и учеными."
-        }, {
-            m: "В результате исследований выяснилось, что " + montha + " – лучшее время для начала лечения. За счет стабилизации средней температуры ускоряются обменные процессы в организме, повышается эффективность препарата. Лечение проходит на 37% быстрее по сравнению с другими периодами года."
-        }, {
-            m: "Единственное, что я хотел бы подчеркнуть, это то, что вы не должны быть безразличны к своей жизни. Простатит – очень опасное заболевание и при отсутствии лечения в 50% случаев превращается в злокачественную опухоль простаты. У вас есть симптомы начните бороться с болезнью, пока еще есть возможность остановить ее обострение!"
-        }, {
-            m: "У меня также есть для вас очень хорошая новость. Вам поставили диагноз онлайн и вы стали моим 3000-м клиентом!"
-        },]
-
-        $(".content").animate({
-            scrollTop: $('.chat-content-list').height()
-        }, 700);
-
-        var mass_id = 0;
-        var length_mass = 0;
-        var lengt_num_mas = 0;
-        var text = '';
-        var speedtext = 50; // скорость вывода сообщений
-        var process = true;
-        setTimeout(() => {
-
-            $(".content").animate({
-                scrollTop: $('.chat-content-list').height()
-            }, 700);
-
-            var h = new Date();
-            var minut = ('0' + h.getMinutes()).slice(-2);
-            var hours = ('0' + h.getHours()).slice(-2);
-            var time = hours + ":" + minut
-
-            const body_mas = '<div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="text" id="mass' + mass_id + '"></p></div></div></div>';
-            $('.chat-content-list').append(body_mas);
-            const mas_inf = setInterval(function () {
-                if (process == true) {
-                    if (lengt_num_mas != massange.length) {
-                        text += massange[lengt_num_mas].m[length_mass];
-                        length_mass++
-                        $('#mass' + lengt_num_mas + '').html(text);
-                        if (lengt_num_mas === 4 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                            question1();
-                            process = false;
-                            choise1();
-                            $("#scroll_id").addClass("hide-q");
-                            $(".content").animate({
-                                scrollTop: $('.chat-content-list').height()
-                            }, 700);
-                            $("#scroll_id").removeClass("hide-q");
-                        }
-                        if (lengt_num_mas === 5 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                            question2();
-                            process = false;
-                            choise2();
-                            $("#scroll_id").addClass("hide-q");
-                            $(".content").animate({
-                                scrollTop: $('.chat-content-list').height()
-                            }, 700);
-                            $("#scroll_id").removeClass("hide-q");
-                        }
-                        if (lengt_num_mas === 6 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                            question3();
-                            process = false;
-                            choise3();
-                            $("#scroll_id").addClass("hide-q");
-                            $(".content").animate({
-                                scrollTop: $('.chat-content-list').height()
-                            }, 700);
-                            $("#scroll_id").removeClass("hide-q");
-                        }
-                        if (lengt_num_mas === 7 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                            question4();
-                            process = false;
-                            choise4();
-                            $("#scroll_id").addClass("hide-q");
-                            $(".content").animate({
-                                scrollTop: $('.chat-content-list').height()
-                            }, 700);
-                            $("#scroll_id").removeClass("hide-q");
-                        }
-                        if (lengt_num_mas === 18 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                            
-                            $("#scroll_id").addClass("hide-q");
-                            $(".content").animate({
-                                scrollTop: $('.chat-content-list').height()
-                            }, 700);
-                            $("#scroll_id").removeClass("hide-q");
-                        }
-                        // if (lengt_num_mas === 17 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                        //     question5();
-                        //     process = false;
-                        //     choise5();
-                        //     $("#scroll_id").addClass("hide-q");
-                        //     $(".content").animate({
-                        //         scrollTop: $('.chat-content-list').height()
-                        //     }, 700);
-                        //     $("#scroll_id").removeClass("hide-q");
-                        // }
-                        // if (lengt_num_mas === 9 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                        //     question6();
-                        //     process = false;
-                        //     choise6();
-                        //     $("#scroll_id").addClass("hide-q");
-                        //     $(".content").animate({
-                        //         scrollTop: $('.chat-content-list').height()
-                        //     }, 700);
-                        //     $("#scroll_id").removeClass("hide-q");
-                        // }
-                        // if (lengt_num_mas === 10 && length_mass === massange[lengt_num_mas].m.length - 1) {
-                        //     question7();
-                        //     process = false;
-                        //     choise7();
-                        //     $("#scroll_id").addClass("hide-q");
-                        //     $(".content").animate({
-                        //         scrollTop: $('.chat-content-list').height()
-                        //     }, 700);
-                        //     $("#scroll_id").removeClass("hide-q");
-                        // }
-                        if (length_mass == massange[lengt_num_mas].m.length) {
-                            lengt_num_mas++
-                            mass_id++
-                            length_mass = 0;
-                            text = '';
-                            app();
-                            let proc_scroling = lengt_num_mas - 1;
-
-                        }
-                    } else {
-                        clearInterval(mas_inf);
-
-                        $('#mass' + lengt_num_mas + '').parent().parent().css('display', 'none');
-                        $(".iframe-form").addClass("show");
-                        // getValueQuest();
-                        $(".btn-top").addClass("show");
-                    }
-                } else { }
-            }, speedtext)
-        }, 1000)
-
-
-        function app() {
-
-            var h = new Date();
-            var minut = ('0' + h.getMinutes()).slice(-2);
-            var hours = ('0' + h.getHours()).slice(-2);
-            var time = hours + ":" + minut;
-
-            var div = $(".chat-content-list").height() + 100;
-            var win = $('.content').height();
-
-            if (div > win) {
-                $("#scroll_id").removeClass("hide");
-                var i = $(".inp").val();
-                $(".inp").val(++i);
-
-            }
-
-            const body_mas = '<div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="text" id="mass' + mass_id + '"></p></div></div></div>';
-
-            $('.chat-content-list').append(body_mas);
-
-
-            $(".content").animate({
-                scrollTop: $('.chat-content-list').height()
-            }, 700);
+      @media screen and (max-width:800px) {
+        .header_mob {
+          display: flex !important;
+          justify-content: space-between;
+          align-items: center;
         }
 
-        function myMassange(userGend) {
-
-
-            var h = new Date();
-            var minut = ('0' + h.getMinutes()).slice(-2);
-            var hours = ('0' + h.getHours()).slice(-2);
-            var time = hours + ":" + minut;
-
-            let mass = '<div class="chat-content-item user item-active"><div class="chat-content-desc"><div class="chat-content-desc-item user"><p class="text" class="users_mass">' + userGend + '</p></div></div></div>';
-            $('.chat-content-list').append(mass);
-            $(".content").animate({
-                scrollTop: $('.chat-content-list').height()
-            }, 700);
-
+        .soc-buttons_vk {
+          display: none !important;
         }
 
-        function question1() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question1M">Да</span></div><div class="chat-content-buttons-gender-block"><span class="question1W">Нет</span></div></div>');
+        .soc-buttons_ok {
+          display: none !important;
         }
 
-        function choise1() {
-            $('.question1M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Да');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question1W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Нет');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-           
+        .soc-buttons_rss {
+          display: none !important;
         }
 
-        function question2() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question2M">Да</span></div><div class="chat-content-buttons-gender-block"><span class="question2W">Нет</span></div></div>');
+        .header_desc {
+          display: none !important;
         }
 
-        function choise2() {
-            $('.question2M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Да');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question2W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Нет');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-           
+      }
+    </style>
+    <div class="header_mob" style="display:none;">
+      <a href="#"><img class="header_img" src="images/uni-logo.svg" alt=""></a>
+      <button class="menu-btn"><img src="images/./menu.png" alt=""></button>
+
+    </div>
+    <nav class="mobile-menu" style="position: relative; border-top:1px solid white;">
+      <ul
+        style="color: white;display: flex;justify-content: space-between;padding: 20px;align-items: center;flex-direction: row;flex-wrap: wrap;">
+        <li><a href="#" class="nav_li" style="color: white;">
+            Politic</a></li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Justiție</a></li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Social</a></li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Economic</a></li>
+        <li><a href="#" class="nav_li" style="color: white;"> Tech</a>
+        </li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Sport</a></li>
+        <li><a href="#" class="nav_li" style="color: white;"> Auto</a>
+        </li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Cultură</a></li>
+        <li><a href="#" class="nav_li" style="color: white;">
+            Turism</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrapper_text">
+      <div class="current-category">Actualités</div>
+      <h1 class="title">LA CRISE GLOBALE DU
+        TRAITEMENT DE LA PROSTATITE EN ALGERIE ! DE L'IMPUISSANCE AU CANCER DE LA PROSTATE EN UNE SEULE ÉTAPE ! </h1>
+      <h3 class="subtitle">Dans une interview, un
+        scientifique turc parle de méthodes innovantes de traitement de l'impuissance et de la prostatite ! </h3>
+      <div class="post-date">
+        <span class="date-0">08.05.2024</span>
+      </div>
+      <div class="categories">
+        <ul>
+          <li class="current"><a href="#" style="text-decoration: none;">Santé</a></li>
+          <li><a href="#" style="text-decoration: none;">Dr Okan
+              Karahan</a></li>
+          <li><a href="#" style="text-decoration: none;">Photos
+              des conséquences</a></li>
+          <li><a href="#" style="text-decoration: none;">Prostatite</a> </li>
+          <li><a href="#" style="text-decoration: none;">Interview</a> </li>
+        </ul>
+      </div>
+      <div class="social">
+        <a href="#" style="text-decoration: none;">
+          <span>Partager</span></a>
+        <a href="#"> <img src="images/facebook.jpg" class="b-lazy b-loaded b-lazy"></a>
+        <a href="#"> <img src="images/twitter.jpg" class="b-lazy b-loaded b-lazy"></a>
+        <a href="#"> <img src="images/linkedin.jpg" class="b-lazy b-loaded b-lazy"></a>
+        <a href="#"> <img src="images/pinterest.jpg" class="b-lazy b-loaded b-lazy"></a>
+        <a href="#"> <img src="images/email.jpg" class="b-lazy b-loaded b-lazy"></a>
+      </div>
+      <div class="doca">
+        <img src="images/image1.png" class="image  horizontal b-lazy b-loaded b-lazy">
+        <div>
+          <p>
+            <b style="font-weight: bold;">Okan
+              Karahan.</b> Urologue turc de renom, professeur et lauréat du prix Nobel académique, il a participé à la
+            recherche clinique et au développement de nouvelles méthodes de diagnostic et de traitement des maladies
+            urologiques.
+          </p>
+          <p>
+            L'année 2023 a enregistré un nombre record d'hommes souffrant d'impuissance et de prostatite en Algérie.
+            Pour certains, la prostate est sur le point de s'enflammer, tandis que pour d'autres, elle est déjà
+            tellement enflammée qu'elle a obstrué les voies urinaires, provoquant de nombreux troubles urinaires et
+            gâchant leur vie sexuelle. Mais même dans ce cas, les hommes ne se pressent pas pour consulter des
+            spécialistes. Des faits effrayants et une nouvelle approche pour résoudre le problème une fois pour toutes !
+          </p>
+        </div>
+      </div>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Okan Karahan,
+            pourquoi l'inflammation de la prostate est-elle considérée comme une maladie grave? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">La prostatite est
+            une maladie grave qui, avec le temps, peut entraîner des complications sérieuses pour de nombreux organes et
+            systèmes de l'organisme. Il est nécessaire de surveiller de près les premiers signes de la prostatite, car
+            leur détection est importante pour que le traitement commence à temps. La plupart des premiers symptômes de
+            la prostatite sont assez spécifiques et peuvent être remarqués sans formation médicale. </p>
+        </div>
+      </div>
+
+      <style>
+        .toggling-list.very-nice * {
+          font-family: "Roboto Condensed", sans-serif;
         }
 
-        function question3() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question3M">Я занимаюсь спортом 3-5 раз в неделю. </span></div><div class="chat-content-buttons-gender-block"><span class="question3W">Я занимаюсь спортом  1-3 раза в неделю.</span></div><div class="chat-content-buttons-gender-block"><span class="question3P">Физических упражнений вообще нет.</span></div></div>');
+
+        .toggling-list.very-nice {
+          list-style: none;
+          counter-reset: list;
+          padding-left: 0;
         }
 
-        function choise3() {
-            $('.question3M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Я занимаюсь спортом 3-5 раз в неделю. ');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question3W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Я занимаюсь спортом  1-3 раза в неделю.');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question3P').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Физических упражнений вообще нет.');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-          
+        .toggling-list.very-nice li {
+          position: relative;
+          counter-increment: list;
+          max-width: 100%;
+          margin: 10px 0;
+          padding: 20px 5px 10px !important;
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+          border-radius: 0.25rem;
+          overflow: hidden;
+          background-color: white;
+          display: block;
+          transition: all 0.3s linear;
         }
 
-        function question4() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question4M">До 20 Лет</span></div><div class="chat-content-buttons-gender-block"><span class="question4W">20-30 лет </span></div><div class="chat-content-buttons-gender-block"><span class="question4P">31-40 лет</span></div><div class="chat-content-buttons-gender-block"><span class="question4T">41-50</span></div><div class="chat-content-buttons-gender-block"><span class="question4O">Старше 50 Лет</span></div></div>');
+        .toggling-list.very-nice li:hover {
+          transform: scale(1.02);
         }
 
-        function choise4() {
-            $('.question4M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('До 20 Лет');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question4W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('20-30 лет ');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question4P').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('31-40 лет');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question4T').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('41-50');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question4O').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('Старше 50 Лет');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
+        .toggling-list.very-nice li::before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 7px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #3167a5;
         }
 
-        function question5() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question5M">20 के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5W">20 से 30 के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5P">31 से 40 साल के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5T">41 से 50 साल के करीब</span></div><div class="chat-content-buttons-gender-block"><span class="question5G">50 से ऊपर</span></div></div>');
+        .toggling-list.very-nice h3 {
+          display: flex;
+          align-items: baseline;
+          color: rgb(70 70 70);
         }
 
-        // function choise5() {
-        //     $('.question5M').click(() => {
-        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-        //         myMassange('20 के करीब');
-        //         $('.chat-content-buttons-gender').css('display', 'none');
-        //         setTimeout(() => {
-        //             process = true;
-        //         }, 500)
-        //     });
-        //     $('.question5W').click(() => {
-        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-        //         myMassange('20 से 30 के करीब');
-        //         $('.chat-content-buttons-gender').css('display', 'none');
-        //         setTimeout(() => {
-        //             process = true;
-        //         }, 500)
-        //     });
-        //     $('.question5P').click(() => {
-        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-        //         myMassange('31 से 40 साल के करीब');
-        //         $('.chat-content-buttons-gender').css('display', 'none');
-        //         setTimeout(() => {
-        //             process = true;
-        //         }, 500)
-        //     });
-        //     $('.question5T').click(() => {
-        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-        //         myMassange('41 से 50 साल के करीब');
-        //         $('.chat-content-buttons-gender').css('display', 'none');
-        //         setTimeout(() => {
-        //             process = true;
-        //         }, 500)
-        //     });
-        //     $('.question5G').click(() => {
-        //         document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-        //         myMassange('50 से ऊपर');
-        //         $('.chat-content-buttons-gender').css('display', 'none');
-        //         setTimeout(() => {
-        //             process = true;
-        //         }, 500)
-        //     });
-        // }
-
-        function question6() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question6M">60 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6W">61 से 70 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6P">71 से 80 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6T">81 से 90 किग्रा तक</span></div><div class="chat-content-buttons-gender-block"><span class="question6O">90 से अधिक</span></div></div>');
+        .toggling-list.very-nice h3::before {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: 0 0 auto;
+          margin-right: 20px;
+          width: 25px;
+          height: 25px;
+          content: counter(list);
+          padding: 10px;
+          border-radius: 50%;
+          background-color: #3167a5;
+          color: white;
         }
 
-        function choise6() {
-            $('.question6M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('60 किग्रा तक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question6W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('61 से 70 किग्रा तक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question6P').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('71 से 80 किग्रा तक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question6T').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('81 से 90 किग्रा तक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
-            $('.question6O').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('90 से अधिक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            })
+        .toggling-list.very-nice p {
+          font-weight: 400;
+          font-size: 16px;
         }
 
-        function question7() {
-            $('.chat-content-list').append('<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="question7M">150 सेमी से कम</span></div><div class="chat-content-buttons-gender-block"><span class="question7W">150-160 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7P">161-170 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7T">171-180 सेमी के बीच</span></div><div class="chat-content-buttons-gender-block"><span class="question7G">180 सेमी से अधिक</span></div></div>');
+        .toggling-list .toggle-arrow {
+          position: absolute;
+          right: 20px;
+          top: 30px;
+          width: 15px;
+          height: 15px;
+          object-fit: cover;
+          transition: all 0.5s ease-in;
+          transform: rotate(180deg);
         }
 
-        function choise7() {
-            $('.question7M').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('150 सेमी से कम');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            });
-            $('.question7W').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('150-160 सेमी के बीच');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            });
-            $('.question7P').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('161-170 सेमी के बीच');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            });
-            $('.question7T').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('171-180 सेमी के बीच');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            });
-            $('.question7G').click(() => {
-                document.querySelector('.chat-content-buttons-gender').style.display = 'none';
-                myMassange('180 सेमी से अधिक');
-                $('.chat-content-buttons-gender').css('display', 'none');
-                setTimeout(() => {
-                    process = true;
-                }, 500)
-            });
+        .toggling-list .toggle-arrow.active {
+          transform: rotate(0);
+        }
+
+        .toggling-list .additional-text {
+          font-weight: 400;
+          max-height: 0;
+          transition: all 0.5s linear;
+          overflow: hidden;
+          padding-left: 59px;
+        }
+
+        .toggling-list .additional-text.active {
+          max-height: 200px;
         }
 
 
 
-        // $('.content').scroll(function () {
-        //     if (document.getElementById('res').value == "0") {
-        //         $("#scroll_id").addClass("aba");
-        //     } else {
-        //         $("#scroll_id").removeClass("aba");
-        //     }
-        // });
+        @media (max-width: 639px) {
+          .toggling-list .additional-text {
+            padding-left: 0;
+            margin-top: 5px;
+          }
+
+          .toggling-list.very-nice h3 {
+            display: block;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+        }
+
+        @media (min-width: 450px) {
+          .toggling-list.very-nice li {
+            margin: 10px 0;
+            padding: 30px 10px 10px;
+
+          }
+
+          .toggling-list.very-nice h3 {
+            font-size: 25px;
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+
+          .toggling-list.very-nice h3::before {
+            margin-right: 15px;
+
+          }
+
+          .toggling-list.very-nice p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 17px;
+            font-weight: 400
+          }
+
+        }
+      </style>
+
+      <ol style="--length: 5;margin-bottom: 0;" role="list" class="toggling-list very-nice">
+        <!--ELEM-4-text-list-long-text-1-->
+        <li style="--i: 1">
+
+          <h3> Troubles urinaires : </h3>
+
+          <img src="images/Arrow_top.png" alt="" class="toggle-arrow active">
+          <p class="additional-text active">
+            <span>mictions fréquentes, brûlures de
+              l'urètre;</span><br>
+            <span>sensation de "vessie pas tout à
+              fait vide";</span><br>
+            <span>difficulté à uriner (faible jet)
+             ;</span><br>
+          </p>
 
 
-        $(".manager").scroll(function () {
-            $(".chat-content-list").animate({
-                scrollTop: $('#down-box').height()
-            }, 700);
-        });
+        </li>
+        <li style="--i: 1">
+
+          <h3>Dysfonctionnement sexuel :</h3>
+
+          <img src="images/Arrow_top.png" alt="" class="toggle-arrow active">
+          <p class="additional-text active">
+            <span>diminution du désir sexuel
+             ;</span><br>
+            <span>détérioration de la durée et de la
+              qualité des érections;</span><br>
+          </p>
 
 
-        /* Скролл к якорю */
-        // $("[data-scroll]").on("click", function (event) {
-        //     $(".content").animate({
-        //         scrollTop: $('.chat').height()
-        //     }, 700);
-        //     $("#scroll_id").addClass("hide");
-        // });
+        </li>
+        <li style="--i: 1">
+
+          <h3>Trouble de l'éjaculation : </h3>
+
+          <img src="images/Arrow_top.png" alt="" class="toggle-arrow active">
+          <p class="additional-text active">
+            <span>éjaculation précoce ou problèmes
+              d'éjaculation;</span><br>
+            <span>mauvaise éjaculation.</span><br>
+          </p>
 
 
-        $(".to_form").on("touchend, click", function (e) {
-            e.preventDefault();
-            $('body,html').animate({
-                scrollTop: $('#form').offset().top
-            }, 400);
-        });
+        </li>
+
+      </ol>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Pourquoi les
+            médecins ont-ils du mal à traiter cette maladie? Un traitement efficace ne permettrait-il pas de sauver des
+            milliers de vies? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">Lorsque je me
+            suis rendu en Algérie pour échanger des expériences avec mes collègues, j'ai été surpris de découvrir à quel
+            point le traitement de la prostatite était encore un processus complexe et fastidieux. En Algérie, la
+            prostatite est souvent traitée avec des médicaments dépassés et inefficaces, qui doivent être utilisés en
+            continu tout au long de la vie. En Turquie, par exemple, la prostatite est traitée en quelques semaines
+            seulement. En Algérie, un homme sur deux âgé de plus de 25 ans souffre d'une prostatite à un stade ou à un
+            autre. Les urologues le savent, ils savent qu'il est nécessaire de rétablir la nutrition normale des organes
+            pelviens et d'augmenter la production naturelle de testostérone. Cependant, pour une raison ou une autre,
+            cette pratique n'est pas répandue en Algérie. </p>
+          <p class="review__text-2">
+            Le plus important est de ne pas attendre ! Les troubles de la fonction sexuelle et de l'éjaculation ne sont
+            pas les conséquences les plus graves de cette maladie. L'adénome de la prostate est beaucoup plus dangereux
+            : il s'agit d'une tumeur de la prostate qui évolue le plus souvent vers un cancer de la prostate. Ces
+            symptômes apparemment insignifiants conduisent presque toujours à des conséquences irréparables au départ :
+          </p>
+        </div>
+      </div>
+
+      <div class="conteiner_example" style="margin: 0 auto;">
+
+
+        <p class="com"
+          style="font-size: 19px; line-height:22px !important;  padding-left: 10px;border-left: 4px solid #3167a5;vertical-align:middle;line-height: 30px;">
+
+
+          <strong class="str_com">Impuissance
+          </strong>
+        </p>
+        <div class="div_hid_photo"> <img id="image1" class="image_horizontal blur"
+            style="max-width: auto !important; border-top: 0 !important;margin:10px auto " src="images/impotencia.jpg"
+            alt=""> <img class="hand_photo" src="images/hand.png" id="hand1" alt="">
+        </div>
+
+        <p class="com"
+          style="font-size: 19px; line-height:22px !important;  padding-left: 10px;border-left: 4px solid #3167a5;vertical-align:middle;line-height: 30px;">
+
+
+          Le <strong class="str_com">cancer de la
+            prostate </strong> <br>
+
+          La <span class="str_com">cause de décès la
+            plus fréquente (jusqu'à 88 %) chez les hommes souffrant d'impuissance </span>. </p>
+        <div class="div_hid_photo"> <img id="image2" class="image_horizontal blur"
+            style="max-width: auto !important; border-top: 0 !important;margin:10px auto " src="images/rak.jpg" alt="">
+          <img class="hand_photo" src="images/hand.png" id="hand2" alt="">
+        </div>
+
+        <p class="com"
+          style="font-size: 19px; line-height:22px !important;  padding-left: 10px;border-left: 4px solid #337AB7;vertical-align:middle;line-height: 30px;">
+
+
+          <strong class="str_com">Calculs rénaux
+          </strong> <br>
+
+          La <span class="str_com">maladie se
+            développe également en raison d'une détérioration de l'irrigation sanguine des organes pelviens </span>.
+        </p>
+        <div class="div_hid_photo"> <img id="image4" class="image_horizontal blur"
+            style="max-width: auto !important; border-top: 0 !important;margin:10px auto " src="images/kamni.png"
+            alt=""> <img class="hand_photo" src="images/hand.png" id="hand4" alt=""></div>
+        <p>
+
+        </p>
+      </div>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Comment la
+            prostatite est-elle traitée dans le monde moderne? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">
+            En 2018, des scientifiques turcs ont prouvé que la principale cause de la prostatite est une perturbation de
+            la circulation sanguine dans les organes pelviens. Le fait est que cette zone possède un très grand ensemble
+            de petits capillaires. Ils alimentent la prostate. En raison de divers facteurs négatifs, ainsi que de
+            l'âge, ces capillaires se bouchent et le sang ne circule plus. </p>
+          <p class="review__text-2">En conséquence,
+            la prostate (qui produit 18 hormones vitales pour l'homme) commence à recevoir des nutriments et de
+            l'oxygène en quantité insuffisante. Cela conduit à l'immobilité. Les sécrétions commencent à s'accumuler
+            dans les tissus glandulaires. Les bactéries commencent alors à se multiplier dans ces sécrétions. Une
+            inflammation se produit. Une glande enflammée n'est rien d'autre qu'une prostatite aiguë. En l'absence
+            d'inflammation et en cas d'accumulation de sécrétions, on parle de prostatite chronique.</p>
+          <p class="review__text-2">
+            Cela montre clairement ce qu'il faut faire pour vaincre la prostatite. Il n'est pas nécessaire de détruire
+            les bactéries avec des antibiotiques dangereux, comme le font les spécialistes en Algérie, mais seulement
+            d'éliminer la stagnation. En d'autres termes, il faut normaliser l'irrigation sanguine de la prostate.</p>
+        </div>
+      </div>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Existe-t-il des
+            aliments contenant de la vitamine B en Algérie? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">Je vais vous
+            surprendre. <span style="text-transform: uppercase;">CE TYPE DE PRODUIT EXISTE EN ALGERIE !</span> Il
+            s'appelle <a href="#" class="links">Rhino</a>, il crée des
+            anticorps dans le corps humain qui affectent les ovaires et le système immunitaire, l'effet est perceptible
+            après 1 à 2 semaines d'utilisation régulière. Contrairement à de nombreux autres médicaments pour
+            l'inflammation de la prostate, ce produit a été développé par des experts dans le domaine, et non par de
+            grandes sociétés pharmaceutiques. Le produit a été développé en coopération avec des urologues et des
+            scientifiques de premier plan. </p>
+        </div>
+      </div>
+
+      <p style="font-size: 19px;">Le <b>médicament a un effet polyvalent sur
+          l'organisme masculin</b>: </p>
+
+      <style>
+        .promo__text,
+        .promo__wrapper {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center
+        }
+
+        .promo__item:not(:last-child) {
+          margin-bottom: 15px
+        }
+
+        .promo__text {
+          -webkit-box-ordinal-group: 0;
+          -ms-flex-order: -1;
+          flex-direction: row;
+          order: -1;
+          margin-top: 20px;
+          margin-bottom: 20px
+        }
+
+        .promo__list {
+          width: 100%
+        }
+
+        .promo__list--header {
+          margin-bottom: 20px;
+          font-size: 20px;
+          text-align: center
+        }
+
+        .promo__item {
+          position: relative;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          min-height: 50px;
+          padding-left: 65px;
+          padding-right: 10px
+        }
+
+        .promo__item::before {
+          position: absolute;
+          content: '';
+          width: 46px;
+          height: 46px;
+          left: 0;
+          top: calc(50% - 23px);
+          border-radius: 50%;
+          border: 4px solid #c0e0c7;
+          background: url(images/icon_chek.svg) center center/23px 19px no-repeat #2e9747
+        }
+
+        @media screen and (min-width:640px) {
+          .promo__wrapper {
+            position: relative;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+          }
+
+          .promo__text {
+            width: 100%
+          }
+
+          .promo__list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around
+          }
+
+          .promo__item {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            width: 33%;
+            padding: 50px 5px 0;
+            text-align: center
+          }
+
+          .promo__item::before {
+            top: 0;
+            left: calc(50% - 23px)
+          }
+
+          .promo__item:nth-child(n) {
+            margin-bottom: 0
+          }
+        }
+
+        @media screen and (max-width:768px) {
+          .promo__text {
+            flex-direction: column;
+          }
+        }
+
+        @media screen and (min-width:768px) {
+          .promo__wrapper {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+          }
+
+          .promo__list {
+            margin-bottom: 20px
+          }
+
+          .promo__list {
+            flex-wrap: wrap;
+          }
+        }
+
+        @media screen and (min-width:1024px) {
+
+          .promo .container-1 {
+            justify-content: center;
+            width: 100%;
+            margin: 0 0 20px 0;
+            padding-top: 0px;
+            padding-bottom: 0
+          }
+
+          .promo__wrapper {
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch
+          }
+
+          .promo__item:not(:last-child) {
+            margin-bottom: 10px
+          }
+
+          .promo__text {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: center;
+            /* width: 400px */
+          }
+
+          .promo__list {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            margin-bottom: 0
+          }
+
+          .promo__list--header {
+            margin-bottom: 20px;
+            font-size: 24px;
+            line-height: 30px
+          }
+
+          .promo__item {
+            width: 100%;
+            padding: 0 10px 0 60px;
+            font-size: 20px;
+            text-align: left
+          }
+
+          .promo__item::before {
+            left: 0;
+            top: calc(50% - 23px)
+          }
+        }
+
+        @media screen and (min-width:1220px) {
+
+          .promo__list--header {
+            margin-bottom: 30px
+          }
+
+          .promo__item {
+            padding-right: 0
+          }
+        }
+      </style>
+
+      <section class="promo" style="display: flex;
+    justify-content: center;">
+        <div class="container-1">
+          <div class="promo__wrapper">
+            <div class="promo__text">
+              <img src="images/produkt.png" alt="" class="img-offer">
+              <ul class="promo__list">
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">atténue et
+                      soulage l'inflammation chronique de la prostate</span>;
+                  </p>
+                </li>
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">prévient les
+                      infections des voies urinaires</span>;
+                  </p>
+                </li>
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">facilite la
+                      miction</span>;
+                  </p>
+                </li>
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">rétablit la
+                      puissance</span>;
+                  </p>
+                </li>
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">augmente la
+                      libido</span>;
+                  </p>
+                </li>
+                <li class="promo__item">
+                  <p class="promo__item--text">
+                    <span class="bold">prévient
+                      l'infertilité</span>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Existe-t-il des
+            études scientifiques sur <a href="#" class="links">Rhino</a> ou des témoignages de patients qui confirment
+            l'efficacité du
+            médicament? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr. Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">Ce n'est qu'en
+            raison d'une composition qualitativement sélectionnée que l'érection normale est rétablie, stabilisée et
+            fixée. Contrairement à d'autres compléments alimentaires et pilules synthétiques, <a href="#"
+              class="links">Rhino</a> rétablit la puissance
+            naturelle sans nuire à la santé. </p>
+          <p class="review__text-2">En outre, B <a href="#" class="links">Rhino</a> est
+            utilisé depuis environ un an, de sorte qu'il existe des statistiques urologiques officielles basées sur les
+            résultats d'études cliniques. Environ 2000 hommes d'âges différents ont participé à l'étude. Tous ont suivi
+            un traitement. </p>
+        </div>
+      </div>
+
+      <p class="aside"><b>Des études ont montré que <span style="color: red;"><b>
+              <script>document.write(month())</script>
+            </b></span> meilleur moment pour commencer le traitement. En raison de la stabilisation de la température
+          moyenne, les processus métaboliques dans le corps sont accélérés et l'efficacité du médicament est accrue. Le
+          traitement est 37 % plus rapide qu'à d'autres périodes de l'année. </b></p>
+
+      <style>
+        .spisok_dva h3 {
+          font-family: "Roboto Condensed", sans-serif;
+        }
+
+        .list3a {
+          font-family: "Roboto Condensed", sans-serif;
+          padding: 0 0 0 17px;
+          list-style: none;
+          counter-reset: li;
+        }
+
+        .list3a li {
+          position: relative;
+          border-left: 4px solid #337AB7;
+          padding: 0 20px 10px 18px;
+          margin: 0 0 16px 40px;
+          -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+        }
+
+        .list3a li:before {
+          line-height: 32px;
+          position: absolute;
+          top: 0px;
+          left: -80px;
+          width: 80px;
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          color: #77AEDB;
+          counter-increment: li;
+          content: counter(li);
+          -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+
+        .list3a li:hover:before {
+          color: #337AB7;
+        }
+
+        .list3a li:after {
+          position: absolute;
+          top: 15px;
+          left: -40px;
+          width: 60px;
+          height: 60px;
+          border: 8px solid #3399FF;
+          border-radius: 50%;
+          content: '';
+          opacity: 0;
+          -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+          -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+          transition: transform 0.3s, opacity 0.3s;
+          -webkit-transform: translateX(-50%) translateY(-50%) scale(0.1);
+          -moz-transform: translateX(-50%) translateY(-50%) scale(0.1);
+          transform: translateX(-50%) translateY(-50%) scale(0.1);
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+
+        .list3a li:hover:after {
+          opacity: 0.2;
+          -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+          -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+          transform: translateX(-50%) translateY(-50%) scale(1);
+        }
+
+        @media screen and (min-width:800px) {
+          .list3a li {
+            margin-bottom: 20px;
+          }
+        }
+      </style>
+
+      <div class="spisok_dva">
+        <h3 style="font-size: 20px; line-height: 30px; margin-bottom: 12px !important;display: block;margin: 0  ;">
+          Les résultats suivants ont été obtenus à partir de recherches et d'essais cliniques : </h3>
 
 
 
-        // /* Скрыть/показать кнопку скролла */
-        // var $marker = $('#down-box');
-        // $('.content').scroll(function () {
+        <ul class="list3a">
+          <li>Récupération de la fonction érectile -
+            99,7 %. L'excitation est instantanée, l'érection stable est maintenue tout au long du rapport sexuel jusqu'à
+            2-3 heures. </li>
+          <li>Augmentation de la libido - 86,4 %. Le
+            désir sexuel s'éveille beaucoup plus souvent et augmente sensiblement. </li>
+          <li>Durée des rapports sexuels : la durée
+            des rapports sexuels passe à 2 ou 3 heures, ce qui est important car la rapidité avec laquelle l'homme
+            termine ses rapports sexuels peut empêcher la femme de jouir pleinement de son plaisir. </li>
+          <li>L'orgasme intense : l'orgasme devient
+            beaucoup plus intense grâce à une plus grande sensibilité du pénis et à une plus grande libido. </li>
+          <li>Risque d'arrêt cardiaque soudain -
+            réduit à 30 %. </li>
+          <li>Il a un léger effet anti-inflammatoire
+            sur la prostate; </li>
+        </ul>
+      </div>
 
-        //     if ($('.content').scrollTop() + $('.content').height() >= $('.chat').height() + 100) {
-        //         document.getElementById('res').value = "0";
-        //         $("#scroll_id").addClass("hide");
-        //     } else {
-        //         $("#scroll_id").removeClass("hide");
-        //     }
-        // });
+      <p>L'<a href="#" class="links">Rhino</a> est composée uniquement
+        d'ingrédients naturels qui ne provoquent pas de réactions allergiques ! Il peut être pris même si vous êtes
+        allergique à d'autres médicaments. Il est totalement inoffensif pour le foie, qui est généralement gravement
+        affecté par l'utilisation de presque tous les médicaments. </p>
 
-    </script>
-    <script>
-        var d = new Date();
-        var hours = d.getHours() % 12;
-        var minut = ('0' + d.getMinutes()).slice(-2);
-        var hour = ('0' + d.getHours()).slice(-2);
-        var time = hour + ":" + minut;
-        hours = hours ? hours : 12;
-        var monthA = 'Январь, февраль, март, апрель, май, июнь, июль, август, сентябрь, октябрь, ноябрь, декабрь'.split(',');
-        var p = new Date(d.getTime());
-        var test = monthA[p.getMonth()] + " " + p.getDate() + " " + time;
-        document.querySelector(".date").innerHTML = test;
-    </script>
-    <!-- INTH_SNIPPET_BOTTOM -->
+      <p>L'efficacité du médicament a également été
+        confirmée par des histoires réelles de personnalités turques célèbres, telles que Halit Ergenç, Hakan Şükür et
+        Orhan Pamuk, qui ont prouvé par leur exemple personnel l'efficacité de l'<a href="#" class="links">Rhino</a>.
+        Ces hommes étaient confrontés à
+        des problèmes de prostatite et présentaient des symptômes caractéristiques tels que des douleurs pelviennes, des
+        mictions fréquentes, des mictions douloureuses et une gêne pendant l'activité sexuelle. Ils ont décidé de me
+        contacter, j'ai diagnostiqué le problème et recommandé un médicament contre la prostatite. </p>
+
+      <p>Après une application minutieuse du
+        médicament recommandé, Halit, Hakan et Orhan ont progressivement ressenti un soulagement de leurs symptômes. Au
+        fil du temps, les symptômes de la prostatite ont diminué, puis complètement disparu, et ils ont retrouvé une vie
+        normale, sans la gêne et la douleur associées à cette maladie. </p>
+
+      <img src="images/image3.png" alt="" class="img-land">
+      <div class="subtitle-photo">
+        Halit Ergenç, Hakan Şükür et Orhan Pamuk </div>
+
+      <p>Le médicament a été développé par des
+        organisations caritatives qui possèdent également la formule chimique du médicament. La production dépend
+        maintenant de la capacité des usines privées et est en cours d'expansion. Le médicament n'est actuellement vendu
+        que dans le cadre de programmes de réduction spéciaux. </p>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Que dois-je faire
+            pour participer à ce programme? Faut-il un certificat médical ou une pièce d'identité? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p class="review__text-2">Pour recevoir
+            une <a href="#" class="links">Rhino</a>,
+            vous devez remplir les conditions suivantes : ‍ </p>
+          <p><b> <a href="#" class="links">Rhino</a> Conditions d'utilisation :</b>
+          </p>
+          <ul>
+            <li><b>Réservé à un usage personnel.</b><br>Il s'agit de spéculateurs
+              qui essaient d'acheter l'<a href="#" class="links">Rhino</a> en
+              gros et de la revendre avec une forte marge.</li>
+            <li><b>Déposer une candidature sur le site officiel.</b><br>Le formulaire de candidature
+              officiel est une garantie de qualité et une protection contre la spéculation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="compound__wrapper container123">
+        <div class="review">
+          <div class="review__author">
+            <picture>
+              <img class="review__avatar" src="images/testimonial-1.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Journaliste</span></div>
+          </div>
+          <p class="review__text">Quelle est la
+            durée du programme de réduction? </p>
+        </div>
+        <div class="review-2">
+          <div style="display: flex; align-items: center;">
+            <picture><img class="review__avatar-2" src="images/vrach.jpg" alt="Photo of an expert" loading="lazy">
+            </picture>
+            <div class="review__personal-data"><span class="review__name">Dr Okan Karahan :</span></div>
+          </div>
+          <p>Jusqu'au <span style="color: red;" class="date-0">08.05.2024</span>
+            inclus ou jusqu'à l'arrivée du dernier produit <a href="#" class="links">Rhino</a>. Et
+            ce, malgré l'absence de publicité à la
+            radio et à la télévision. Les gens partagent l'information, la recommandent aux membres de leur famille et à
+            leurs amis. Nous avons été surpris d'apprendre que tant de personnes avaient découvert notre programme de
+            réduction, c'est pourquoi je vous encourage à commander <a href="#" class="links">Rhino</a> dès que
+            possible. C'est très simple : laissez
+            une commande avec votre nom et votre numéro de téléphone, et attendez un appel avec votre adresse et le
+            délai de livraison. </p>
+        </div>
+      </div>
+    </div>
+
+    <span id="target"></span>
+    <div class="container-1"
+      style="display: block;border-style:solid;border-color: #1A8BDC; margin-bottom: 20px; margin-top: 20px;"
+      id="container">
+      <div class="wrap" style="height: 40px;">
+        <div class="items-wrap">
+          <div class="items marquee">
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+          </div>
+          <div aria-hidden="true" class="items marquee">
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="container-1">
+        <div style="flex: 50%;">
+          <!--F-9-->
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <img src="images/produkt.png" alt="" style="max-width: 200px;">
+            </div>
+          </div>
+        </div>
+        <div class="form-container sign-up-container">
+          <div class="columns _1234 w-row">
+            <div class="w-col w-col-5">
+              <div class="text-block-5 _1234">
+                <span class="text-span-6"><strong class="bold-text-3 prc red">
+                    11998 DZD</strong></span><br>
+              </div>
+            </div>
+            <div class="w-col w-col-2">
+              <div class="red-border">
+                <div class="red-border__text text-black">-50%</div>
+              </div>
+            </div>
+            <div class="w-col w-col-5">
+              <div class="text-block-6_1">
+                <span class="text-span-7"><strong class="_1-2 prc green">5999 DZD</strong></span><br>
+              </div>
+            </div>
+          </div>
+
+          <form action="" method="post" style="margin-top: 15px;">
+            <div id="eee" style="float: right; display: none;">
+              <div class="nam" style="position: absolute;margin-left: -140px;margin-top: -12px;">
+                <p
+                  style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;">
+                  <b>Ahmed Zouabi</b>
+                </p>
+              </div>
+            </div>
+            <div class="" style="display: flex;">
+              <input type="text" onfocus="placen()" onfocusout="placen2()" id="name" name="name" placeholder="Votre nom"
+                maxlength="100" required="">
+            </div>
+            <div id="eee2" style="float: right;display: none;">
+              <div class="nam" style="position: absolute;margin-left: -185px;margin-top: -12px;">
+                <p
+                  style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;">
+                  <b>+213-XXX-XXX-XXX</b>
+                </p>
+              </div>
+            </div>
+            <div class="" style="display: flex;">
+              <input type="tel" onfocus="placeh()" onfocusout="placeh2()" name="phone"
+                placeholder="Votre numéro de téléphone" minlength="5" required="">
+            </div>
+            <button style="background-color: #1A8BDC;">Commander une Rhino</button>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .comments-wrap {
+        max-width: 850px;
+        width: 100%;
+        margin: 15px auto;
+      }
+
+      .icon {
+        cursor: pointer;
+      }
+
+      .comment {
+        font-family: "Roboto Condensed", sans-serif;
+        width: 100%;
+        padding: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 30px;
+        border-radius: 20px;
+        -webkit-box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      .top {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .top__image {
+        width: 60px;
+      }
+
+      .top__image img {
+        width: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 60px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 60px;
+        flex: 0 0 60px;
+      }
+
+      .top__name {
+        color: #203656;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 140%;
+      }
+
+      .top__time {
+        direction: ltr;
+        color: #203656;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 140%;
+        opacity: 0.6;
+      }
+
+      .middle {
+        padding: 20px;
+        border-radius: 15px;
+        background: #f4f5f7;
+      }
+
+      .middle__text {
+        color: #203656;
+        font-weight: 500;
+        line-height: 150%;
+        opacity: 0.9;
+      }
+
+      .bottom {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+        row-gap: 10px;
+      }
+
+      .bottom__like {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .bottom__comments {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .bottom__share {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .reply {
+        padding-left: 50px;
+        position: relative;
+      }
+
+      .like__number {
+        direction: ltr;
+      }
+
+      .comments__text {
+        direction: ltr;
+      }
+
+      .share__text {
+        direction: ltr;
+      }
+
+      .icon {
+        cursor: pointer;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+      }
+
+      .text {
+        color: #203656;
+        font-weight: 600;
+        line-height: 140%;
+        opacity: 0.6;
+      }
+
+
+
+      @media (max-width: 767px) {
+
+        .comment {
+          border-radius: 15px;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 639px) {
+
+        .comment {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 479px) {
+
+        .top {
+          gap: 10px;
+        }
+
+        .top__image img {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50px;
+          flex: 0 0 50px;
+          height: 50px;
+          width: 50px;
+        }
+
+        .top__image {
+          width: 50px;
+        }
+
+        .top__name {
+          font-size: 16px;
+          line-height: 140%;
+        }
+
+        .top__time {
+          font-size: 12px;
+          line-height: 120%;
+        }
+
+        .middle__text {
+          font-size: 14px;
+        }
+
+        .none {
+          display: none;
+        }
+      }
+
+      @media (any-hover: hover) {
+
+        .top__image img {
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+        }
+
+        .top__image img:hover {
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+      }
+    </style>
+
+    <div class="comments-wrap">
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/w1.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Céline Benhamida
+            </div>
+            <div class="top__time"><span class="comment_date date-4">04.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            La prostatite a transformé ma vie en cauchemar, mais grâce à <a href="#" class="links">Rhino</a>, je me suis
+            senti beaucoup mieux. Je le
+            recommande à tous ceux qui souffrent de cette maladie ! </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/w2.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Samir Zouhraoui
+            </div>
+            <div class="top__time"><span class="comment_date date-4">04.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Il y a environ un mois, j'ai commencé à remarquer l'effet après une semaine d'utilisation. J'ai pensé à une
+            intervention chirurgicale, mais je l'ai annulée. J'ai 54 ans mais je me sens 34, je ne m'y attendais pas.
+          </div>
+        </div>
+        <div class="footer-body__comment coment reply">
+          <div class="comment__top top top-reply"><a href="#" class="top__image"><img src="images/m1.jpg"
+                alt="photo"></a>
+            <div class="top__content">
+              <div class="top__name">Ahmed Bouali
+              </div>
+              <div class="top__time"><span class="comment_date date-4">04.05.2024</span></div>
+            </div>
+          </div>
+          <div class="comment__middle middle">
+            <div class="middle__text">
+              Entièrement confirmé ! Produit de qualité ! Je l'ai acheté il n'y a pas longtemps, il y a un mois et demi,
+              et depuis je n'ai eu aucun problème. Je me suis débarrassé de la prostatite pour toujours, bien qu'avant
+              cela je ne pouvais pas me rétablir pendant longtemps, en outre, j'ai considérablement amélioré les
+              érections et augmenté le désir de sexe ! Je le recommande à tout le monde, surtout aux hommes de plus de
+              quarante ans ! <a href="#" class="links">Rhino</a> vous remercie. </div>
+          </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m2.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Muhammad Sherif
+            </div>
+            <div class="top__time"><span class="comment_date date-3">05.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            J'ai pris un risque et je ne le regrette toujours pas. Il n'y a pas eu d'effets secondaires et j'ai apprécié
+            le résultat. </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/w3.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Najla Tager</div>
+            <div class="top__time"><span class="comment_date date-3">05.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Mon mari a également eu des problèmes, il a essayé de les traiter pendant longtemps, mais sans succès. Un
+            expert a alors déclaré que les bactéries responsables de la prostatite s'habituaient aux antibiotiques que
+            mon mari prenait. C'est pourquoi il a recommandé <a href="#" class="links">Rhino</a>. En
+            guise de remerciement, le mari lui a
+            offert une boîte de whisky. </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m3.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Abdelkader
+              Belfodil</div>
+            <div class="top__time"><span class="comment_date date-3">05.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            J'ai essayé de nombreux remèdes, mais <a href="#" class="links">Rhino</a> est le meilleur. Il m'a aidé à
+            faire face à la prostatite et à
+            retrouver ma confiance en moi. </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m4.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Ali Bennasser
+            </div>
+            <div class="top__time"><span class="comment_date date-2">06.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Merci beaucoup ! J'ai tout de même réussi à acheter un pack. Je l'essaierai bientôt. </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m5.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Yousef Bensenusi
+            </div>
+            <div class="top__time"><span class="comment_date date-2">06.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Peut-être que ce médicament est vraiment efficace, mais je dirais qu'il y a quelques doutes. Après tout, je
+            n'arrive pas à croire qu'il puisse y avoir un prix aussi avantageux ! </div>
+        </div>
+
+        <div class="footer-body__comment coment reply">
+          <div class="comment__top top top-reply"><a href="#" class="top__image"><img src="images/m6.jpg"
+                alt="photo"></a>
+            <div class="top__content">
+              <div class="top__name">Hamza Khalidi
+              </div>
+              <div class="top__time"><span class="comment_date date-2">06.05.2024</span></div>
+            </div>
+          </div>
+          <div class="comment__middle middle">
+            <div class="middle__text">
+              Je comprends vos doutes, surtout quand il s'agit de votre santé, mais si vous allez plus haut, il y a un
+              vrai prix indiqué, j'ai commandé le produit il y a 15 jours et je vois déjà des résultats ! </div>
+          </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m7.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Karim Benkradi
+            </div>
+            <div class="top__time"><span class="comment_date date-1">07.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Je n'aurais jamais pensé qu'un jour on m'annoncerait ce terrible diagnostic. Pour les jeunes, c'est un
+            obstacle à la fois à la confiance en soi et à la sexualité. Je n'ai pas désespéré et j'ai cherché une
+            solution globale sur tous les fronts. Je n'ai pas lésiné sur les moyens pour me soigner. J'ai suivi un long
+            traitement, mais en fin de compte, je n'ai été aidée que par <a href="#" class="links">Rhino</a>! Je ne
+            m'attendais pas à ce qu'il fonctionne
+            rapidement et sans problème. </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m8.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Rashid Bugiba
+            </div>
+            <div class="top__time"><span class="comment_date date-1">07.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            J'étais sceptique sur ce type de médicament mais l'<a href="#" class="links">Rhino</a> m'a
+            fait changer d'avis. merci pour
+            l'efficacité ! </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-body__comment comment">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="images/m9.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Salim Derbal
+            </div>
+            <div class="top__time"><span class="comment_date date-0">08.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Le médicament est-il vraiment si efficace? </div>
+        </div>
+
+        <div class="footer-body__comment coment reply">
+          <div class="comment__top top top-reply"><a href="#" class="top__image"><img src="images/m10.jpg"
+                alt="photo"></a>
+            <div class="top__content">
+              <div class="top__name">Nadir Bukaruma
+              </div>
+              <div class="top__time"><span class="comment_date date-0">08.05.2024</span></div>
+            </div>
+          </div>
+          <div class="comment__middle middle">
+            <div class="middle__text">
+              Oui, en effet, de nombreux utilisateurs, dont moi, ont remarqué des améliorations notables après avoir
+              utilisé ce produit. Il agit rapidement et efficacement, aidant à résoudre le problème auquel je faisais
+              face. Je suis très satisfait des résultats et je le recommande à d'autres. Si la prostatite n'est pas
+              traitée, les conséquences peuvent être graves. J'ai une connaissance qui est décédée d'un adénome de la
+              prostate. 46 ans. 2 enfants. </div>
+          </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="footer-body__comment comment clone" style="display: none;">
+        <div class="comment__top top"><a href="#" class="top__image"><img src="user_no_foto.jpg" alt="photo"></a>
+          <div class="top__content">
+            <div class="top__name">Khadija</div>
+            <div class="top__time"><span class="comment_date date-0">08.05.2024</span></div>
+          </div>
+        </div>
+        <div class="comment__middle middle">
+          <div class="middle__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fugit inventore voluptatibus
+            quisquam corrupti. Ipsum, consequatur consectetur dolores harum laudantium, placeat est porro
+            aperiam expedita hic quisquam, sed tenetur nemo.
+          </div>
+        </div>
+        <div class="comment__bottom bottom">
+          <div class="bottom__like like"><img class="like__icon icon" src="icon-heart-empty.svg" alt="icon">
+            <div class="like__number text"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <form id="commentsyou" name="comment"
+      style="width: 100%;max-width: 650px; margin: 20px auto;font-family: Roboto Condensed">
+      <p>
+        <input
+          style=" font-family: inherit;font-size: 17px;border-radius: 20px; width: 100%; padding: 10px; background: #f0f2f5; border: none;"
+          type="text" id="namecomments" class="commfb" name="namescomm" placeholder="Nom:" required="">
+      </p>
+      <p style="margin-bottom: 10px;">
+        <br>
+        <input type="text"
+          style=" font-family: inherit;font-size: 17px;border-radius: 20px; width: 100%; padding: 10px 10px 30px; background: #f0f2f5; border: none;"
+          name="textcomment" id="textcomments" class="commfb" required="" placeholder="Un commentaire:">
+      </p>
+      <p>
+
+        <input
+          style="cursor: pointer;border-radius: 5px; padding: 10px; background: linear-gradient(90deg, rgb(197, 222, 215) 0%, rgba(216, 220, 219, 0.768) 100%);; color: #000; font-weight: bold; outline: none !important; box-shadow: none; border: none !important;"
+          type="submit" class="cobot" value="Envoyer">
+
+      </p>
+    </form>
+
+    <div class="container-1" style="display: block;border-style:solid;border-color: #1A8BDC;" id="container">
+      <div class="wrap" style="height: 40px;">
+        <div class="items-wrap">
+          <div class="items marquee">
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+          </div>
+          <div aria-hidden="true" class="items marquee">
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+            <div class="item">50%</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="container-1">
+        <div style="flex: 50%;">
+          <!--F-9-->
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <img src="images/produkt.png" alt="" style="max-width: 200px;">
+            </div>
+          </div>
+        </div>
+        <div class="form-container sign-up-container">
+          <div class="columns _1234 w-row">
+            <div class="w-col w-col-5">
+              <div class="text-block-5 _1234">
+                <span class="text-span-6"><strong class="bold-text-3 prc red">
+                    11998 DZD</strong></span><br>
+              </div>
+            </div>
+            <div class="w-col w-col-2">
+              <div class="red-border">
+                <div class="red-border__text text-black">-50%</div>
+              </div>
+            </div>
+            <div class="w-col w-col-5">
+              <div class="text-block-6_1">
+                <span class="text-span-7"><strong class="_1-2 prc green">5999 DZD</strong></span><br>
+              </div>
+            </div>
+          </div>
+
+
+          <form action="" method="post" style="margin-top: 15px;">
+            <div id="eee3" style="float: right; display: none;">
+              <div class="nam" style="position: absolute;margin-left: -140px;margin-top: -12px;">
+                <p
+                  style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;">
+                  <b>Ahmed Zouabi</b>
+                </p>
+              </div>
+            </div>
+            <div class="" style="display: flex;">
+              <input type="text" onfocus="placena()" onfocusout="placena2()" id="name" name="name"
+                placeholder="Votre nom" maxlength="100" required="">
+            </div>
+            <div id="eee4" style="float: right;display: none;">
+              <div class="nam" style="position: absolute;margin-left: -185px;margin-top: -12px;">
+                <p
+                  style="margin: 0;padding: 5px 10px;border-radius: 10px;background-color: red; text-wrap: nowrap;color: white;">
+                  <b>+213-XXX-XXX-XXX</b>
+                </p>
+              </div>
+            </div>
+            <div class="" style="display: flex;">
+              <input type="tel" onfocus="placeha()" onfocusout="placeha2()" name="phone"
+                placeholder="Votre numéro de téléphone" minlength="5" required="">
+            </div>
+            <button style="background-color: #1A8BDC;">Commander une Rhino</button>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="section-3 wf-section">
+    <div class="content11 w-container">
+      <a href="#" class="content_12"><img src="images/logo.png" loading="lazy" alt="" class="image_33">
+      </a>
+      <div class="div-block_40"><a href="#" class="link_1 w-inline-block"><img src="images/f.png" loading="lazy" alt=""
+            class="image_32"></a>
+        <a href="#" class="link_1 w-inline-block"><img src="images/ln.png" loading="lazy" alt="" class="image_32"></a>
+        <a href="#" class="link_1 w-inline-block"><img src="images/p.png" loading="lazy" alt="" class="image_32"></a>
+        <a href="#" class="link_1 w-inline-block"><img src="images/t.png" loading="lazy" alt="" class="image_32"></a>
+        <a href="#" class="link_1 w-inline-block"><img src="images/i.png" loading="lazy" alt="" class="image_32"></a>
+      </div>
+
+    </div>
+    <div>
+      <a href="policy.html" class="pol" style="color: #cbdaea;text-decoration: none; font-family: Roboto Condensed;"
+        target="_blank">Politique</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.value.includes('blur')) {
+          e.target.classList.remove('blur');
+          e.target.nextElementSibling.classList.add('hidden');
+        } else if (e.target.classList.value.includes('hand_photo')) {
+          e.target.classList.add('hidden');
+          e.target.previousElementSibling.classList.remove('blur');
+        }
+      });
+    })
+  </script>
+  <script>
+    function placeh() {
+      document.getElementById('eee2').style.display = "block";
+    };
+    function placeh2() {
+      document.getElementById('eee2').style.display = "none";
+    };
+    function placen() {
+      document.getElementById('eee').style.display = "block";
+    };
+    function placen2() {
+      document.getElementById('eee').style.display = "none";
+    };
+    function placeha() {
+      document.getElementById('eee4').style.display = "block";
+    };
+    function placeha2() {
+      document.getElementById('eee4').style.display = "none";
+    };
+    function placena() {
+      document.getElementById('eee3').style.display = "block";
+    };
+    function placena2() {
+      document.getElementById('eee3').style.display = "none";
+    };
+  </script>
+
+  <script>
+    document.querySelector('#commentsyou').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = e.target.elements.namescomm.value;
+      const textComment = e.target.elements.textcomment.value;
+
+      const obj = `${name}]${textComment}`
+      const clone = document.querySelector('.clone').cloneNode(true);
+      clone.style.display = 'block';
+      clone.querySelector('.top__name').innerHTML = name;
+      clone.querySelector('.middle__text').innerHTML = textComment;
+
+
+      localStorage.setItem('sdgwwetwe', (localStorage.getItem('sdgwwetwe') ||
+        '') + '999' + obj);
+
+      document.querySelector('.comments-wrap').appendChild(clone);
+      document.querySelector('#commentsyou').reset();
+
+      return false;
+    });
+
+    const oldComments = localStorage.getItem('sdgwwetwe') || '';
+
+    if (oldComments) {
+      const a = oldComments.split('999');
+      a.forEach(comm => {
+        if (comm.length) {
+          const clone = document.querySelector('.clone').cloneNode(true);
+          clone.style.display = 'block';
+          clone.querySelector('.top__name').innerHTML = comm.split(']')[0];
+          clone.querySelector('.middle__text').innerHTML = comm.split(']')[1];
+          document.querySelector('.comments-wrap').appendChild(clone);
+        }
+
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('.like__icon').forEach(e => {
+      e.addEventListener('click', (e) => {
+        e.target.src = e.target.src.replace('icon-heart-empty.svg', 'heart.svg')
+      })
+    })
+  </script>
+
+  
 </body>
 
 </html>
